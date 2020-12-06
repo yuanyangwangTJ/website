@@ -124,6 +124,8 @@ web前端需要`HTML, CSS, Javascript`的知识储备，下面将一些学习网
 
    [**菜鸟教程HTML（通俗性强）**](https://www.runoob.com/html/html-tutorial.html)
 
+   [**网站模板**](https://www.liaoxuefeng.com/wiki/897692888725344/923057271077472)
+
 2. **CSS**
 
    同上面，**Mozilla以及菜鸟教程**
@@ -147,7 +149,11 @@ web前端需要`HTML, CSS, Javascript`的知识储备，下面将一些学习网
 
 6. **更多分享，欢迎添加**
 
+7. **Flask**
 
+   [**Flask前后端连接示例**](https://zhuanlan.zhihu.com/p/104273184)
+
+​    
 
 ## 后端
 
