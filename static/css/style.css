@@ -1,4 +1,46 @@
-
 body {
-    background-color: rgb(247, 247, 247);
+    background-color: #ddf0e4;
+    background-image: linear-gradient(to right, #8edce0, #ddf0e4, #ddf0e4,  #ddf0e4);
+}
+
+/*定义左侧导航栏的样式*/
+
+.ul-left {
+    list-style-type: none;
+    margin: 0 30px 0 30px;
+    padding: 20px;
+    width: 10%;
+    top: 10%;
+    background-color: #f6f4f0;
+    position: fixed;
+    height: 80%;
+    overflow: auto;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px gray;
+}
+
+.li-left a {
+    display: block;
+    color: #000;
+    margin: 20px 10px;
+    border-radius: 5px;
+    
+    padding: 8px 16px;
+    font-size: 15px;
+    font-family: fantasy;
+    font-weight:bold;
+    text-decoration: none;
+    text-align: center;
+}
+
+.li-left a.active {
+    background-color: #01bbb0;
+    box-shadow: 5px 5px 3px gray;
+    color: white;
+}
+
+.li-left a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+    box-shadow: 5px 5px 3px gray;
 }
