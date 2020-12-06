@@ -1,0 +1,10 @@
+{% extend '../base.html' %}
+
+{% block header %}
+    <h1> {% block title %}博客{% endblock title %}</h1>
+
+{% endblock header %}
+
+{% block content %}
+    <!-- 在该页面可使用经过数据库查询返回的 posts 字典变量直接展示各个帖子-->
+{% endblock content %}
