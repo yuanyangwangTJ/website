@@ -155,5 +155,36 @@ web前端需要`HTML, CSS, Javascript`的知识储备，下面将一些学习网
 
 ​    
 
-## 后端
+## 3. 后端
 
+### **负责人员**
+
+- 裘自立，徐佳春，韩孟霖
+
+### 学习参考网站
+
+后端按要求需要使用 `Flask`及`Mysql`，若要复用`html`页面还需要了解`Jinja2`模板引擎。
+
+数据库还可以自由选用`Flask`中文文档推荐使用的`python`内置的`sqlite3`。
+
+1. **Flask**
+
+    [**Flask中文文档**](https://dormousehole.readthedocs.io/en/latest/)
+
+2.  **MySQL**
+
+   [**MySQL菜鸟教程**](https://www.runoob.com/mysql/mysql-tutorial.html) （注：版本较老，部分指令实测无法在8.0版本运行）
+
+   [**MySQL官方文档**](https://dev.mysql.com/doc/) 
+
+3. **SQLite**
+
+   [**SQLite菜鸟教程**](https://www.runoob.com/sqlite/sqlite-tutorial.html) 
+
+4. **Jinja**
+
+   [**Jinja官方文档**](https://jinja.palletsprojects.com/en/2.11.x/) 
+
+   [**Jinja2中文手册**](http://www.ainoob.cn/docs/jinja2/intro.html)
+
+5. [**腾讯开发者手册**](https://cloud.tencent.com/developer/devdocs)
