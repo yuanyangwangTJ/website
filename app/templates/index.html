@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>home</title>
+
+</head>
+
+<body>
+	<div name="main" style="margin-left: 30%;">
+		<h1>Home</h1>
+		{% if session.userid %}
+		欢迎！
+		{%if session.usertype=="normal" %}
+		学生{{session.userid}}！
+		{%else%}
+		管理员{{session.userid}}！<br><a href="{{url_for('new')}}">新活动</a>
+		{%endif%}
+		<br>
+		<a href="{{url_for('logout')}}">注销</a>
+		{% else %}
+		<a href="{{url_for('login')}}">登录</a>
+		<br>
+		<a href="{{url_for('regist')}}">注册</a>
+		{% endif %}
+		<br>
+		<br>
+		<h3 >活动列表</h3>
+		{%for act in acts %}
+		<a href="{{url_for('activity',id=act.id)}}">{{act.name}}</a><br>
+		{%endfor%}
+
+	</div>
+</body>
+
+</html>
