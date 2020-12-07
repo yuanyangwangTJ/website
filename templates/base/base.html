@@ -1,0 +1,123 @@
+<!---------------------------------------------
+Name: base
+Author: king
+Function: 网页的基础模块，为其他网页提供模板样式
+PS: 本HTML为基础文档，修改需要考虑对其他界面的影响
+---------------------------------------------->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    {% block head %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="HTML 5" />
+        <meta name="author" content="king" />
+
+        <!--引入Bootstrap和jQuery框架-->
+        <link rel="stylesheet" href="../../static/css/bootstrap/bootstrap.min.css" />
+        <script src="../../static/js/jquery/jquery-3.5.1.js"></script>
+        <script src="../../static/js/bootstrap/bootstrap.min.js"></script>
+
+        <!--其他框架(自定义)-->
+        <link rel="stylesheet" href="../../static/css/style.css" />
+        <title> {% block title %}{% endblock title %} - 德育课堂</title>
+    {% endblock head %}
+</head>
+
+
+<body>
+    
+    {% block nav %}
+    <!--导航菜单栏-->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid"> 
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Website</a>
+        </div>
+        <div>
+            <!--向左对齐--模块-->
+            <!--引出德育课堂五大模块-->
+            <div>
+                <ul class="nav navbar-nav">
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">德·理想信念</a></li>
+                    <li><a href="#">智·文化素养</a></li>
+                    <li><a href="#">体·意志体魄</a></li>
+                    <li><a href="#">美·艺术审美</a></li>
+                    <li><a href="#">劳·劳动实践</a></li>
+                </ul>
+            </div>
+
+            <!--search-->
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search...">
+                </div>
+                <button type="submit" class="btn btn-default">Search</button>
+            </form>
+
+            <!--无特殊意义，方便观看-->
+            <p class="navbar-text navbar-right">TongJi</p>
+
+            <!--向右对齐--profile-->
+            <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            用户<!--此处可以放置头像--> 
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">退出登录</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">切换账号</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </ul>
+
+            <!--主题设置-->
+            <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            主题<!--此处可以设置主题--> 
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">默认模式</a></li>
+                            <li><a href="#">护眼模式</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">落英缤纷</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </ul>
+        
+        </div>
+    </nav>
+    {% endblock nav %}
+
+    {% block ul_left %}
+        <!--左侧导航栏设计-->
+        <ul class="ul-left">
+
+            <li class="li-left"><a class="active" href="#">Home</a></li>
+            <li class="li-left"><a href="#">德育分数</a></li>
+            <li class="li-left"><a href="#">任务日历</a></li>
+            <li class="li-left"><a href="#">申请提交</a></li>
+            <li class="li-left"><a href="#">活动介绍</a></li>
+            <li class="li-left"><a href="#">关于我们</a></li>
+            <li class="li-left"><a href="#">联系我们</a></li>
+        </ul>
+    {% endblock ul_left %}
+
+    {% block content %}
+        
+    {% endblock content %}
+
+</body>
+</html>

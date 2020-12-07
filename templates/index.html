@@ -15,9 +15,10 @@
     <script src="../static/js/bootstrap/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../static/css/style.css" />
 
-    <title>{% block title %}{% endblock title %} - website</title>
-    </head>
+    <title>{% block title %}首页{% endblock title %} - website</title>
     {% endblock head %}
+    </head>
+
     
 <body>
 
@@ -74,7 +75,7 @@
                             <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{g.user['username']}} </a></li>
                             <li><a href="{{ url_for('auth.logout') }}"><span class="glyphicon glyphicon-user"></span></a></li>
                         {% else %}
-                            <li><a href="{{ url_for('auth.register') }}"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
+                            <li><a href="{{ url_for('auth.regist') }}"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
                             <li><a href="{{ url_for('auth.login') }}"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
                         {% endif %}
                     </ul>

@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+
+{% block header %}
+<h1> {% block title %}登录{% endblock title %}</h1>
+{% endblock header %}
+
+{% block content %}
+<!-- 内容填充 -->
+<div style="margin-left: 30%;">
+	<h1>Login</h1>
+	<form action="{{ url_for('auth.login') }}" method="POST">
+		<table>
+			<tbody>
+				<tr>{{text}}
+					<td>学号：</td>
+					<td><input type="text" placeholder="请输入学号" name="userid" oninput="value=value.replace(/[^\d]/g,'')"
+							maxlength="8"></td>
+				</tr>
+				<tr>
+					<td>密码：</td>
+					<td><input type="password" placeholder="请输入密码" name="password" maxlength="30"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="登录"></td>
+				</tr>
+			</tbody>
+		</table>
+	</form><br>
+	<a href="{{url_for('home')}}">返回首页</a><br>
+</div>
+{% endblock content %}

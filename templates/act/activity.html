@@ -12,10 +12,13 @@
 		{% if session.userid  %}
 		{% if session.usertype=="admin" %}
 		<form action="{{ url_for('activity',id=act.id) }}" method="POST"><input type="submit" value="删除"></form><br>
-		{%endif%}{%endif%}
+		{%else%}
+		<form action="{{ url_for('activity',id=act.id) }}" method="POST"><input type="submit" value="报名"></form><br>
+		{%endif%}
+		{%endif%}
 
 		<h2>{{act.name}}</h2>
-		{{act.text}}
+		{{act.text| safe}}
 <br><br>
 		<br><a href="{{url_for('home')}}">Home</a><br>
 	</div>
