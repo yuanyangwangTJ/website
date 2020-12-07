@@ -1,0 +1,20 @@
+{% extends 'base/base.html' %}
+
+{% block header %}
+<h1> {% block title %}用户{% endblock title %}</h1>
+{% endblock header %}
+
+{% block content %}
+<!-- 内容填充 -->
+<div name="main" style="margin-left: 30%;">
+	<h1>Activity</h1>
+	{% if session.userid  %}
+	<form action="{{ url_for('act.activity',id=act.id) }}" method="POST"><input type="submit" value="报名"></form><br>
+	{%endif%}
+
+	<h2>{{act.name}}</h2>
+	{{act.text| safe}}
+	<br><br>
+	<br><a href="{{url_for('home')}}">Home</a><br>
+</div>
+{% endblock content %}

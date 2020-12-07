@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>new</title>
+
+</head>
+
+<body>
+	<div style="margin-left: 30%;">
+		<h1>New activity</h1>
+		请注意不要填太长，也不要把《斗罗大陆》或任何其他能引起后端崩溃的玩意填入表单！<br>不要当刁民！！！<br>{{text}}
+		<br>
+		<form action="{{ url_for('new') }}" method="POST">
+			<table>
+				<tbody>
+					<tr>
+						<td>名称：</td>
+						<td><input type="text" placeholder="名称" name="actname" maxlength="200">
+						</td>
+					</tr>
+					<tr>
+						<td>详细信息：</td>
+						<td><textarea name="context" cols="50" rows="20" maxlength="1000"
+								style="resize: none;"></textarea></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input type="submit" value="递交"></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+		<br><a href="{{url_for('home')}}">Home</a><br>
+	</div>
+</body>
+
+</html>
