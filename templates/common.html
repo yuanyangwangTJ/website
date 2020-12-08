@@ -1,0 +1,331 @@
+<!-----------------------------------------
+Name: base(common)
+Function: 学生界面的基础页面
+PS: 本界面为升级版本，对UI做了较大的改动升级
+Edition: base.2.0
+------------------------------------------>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Moral Education</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="imagetoolbar" content="no" />
+  <link rel="stylesheet" href="../static/css/base/layout.css" type="text/css" />
+  <!-- Homepage Specific Elements -->
+  <script type="text/javascript" src="../static/js/jquery/jquery-1.4.1.min.js"></script>
+  <script type="text/javascript" src="../static/js/jquery/jquery-ui-1.7.2.custom.min.js"></script>
+  <script type="text/javascript" src="../static/js/jquery/jquery.tabs.setup.js"></script>
+  <!-- End Homepage Specific Elements -->
+</head>
+
+<!--top 界面设计-->
+<body id="top">
+  <div class="wrapper row1">
+    <div id="header" class="clear">
+      <div class="fl_left">
+        <h1><a href="index.html">Moral Education</a></h1>
+        <p>Tongji University</p>
+      </div>
+      <div class="fl_right">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">A - Z Index</a></li>
+          <li><a href="#">Student Login</a></li>
+          <li class="last"><a href="#">Staff Login</a></li>
+        </ul>
+        <form action="#" method="post" id="sitesearch">
+          <fieldset>
+            <strong>Search:</strong>
+            <input type="text" value="Search Our Website&hellip;"
+              onfocus="this.value=(this.value=='Search Our Website&hellip;')? '' : this.value ;" />
+            <!-----搜索栏设置------>
+            <input type="image" src="../static/img/search.gif" id="search" alt="Search" />
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!------------------------------------------------------------------------------------>
+  <!------第二层导航栏---------->
+  <div class="wrapper row2">
+    <div class="rnd">
+      <!------导航栏主题------>
+      <div id="topnav">
+        <ul>
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="style-demo.html">Your Score</a></li>
+          <li><a href="full-width.html">Activity Calendar</a></li>
+          <li><a href="3-columns.html">Theme</a></li>
+          <li><a href="portfolio.html">Profile</a></li>
+          <li><a href="gallery.html">Notice</a></li>
+          <li><a href="#">This a very long link</a></li>
+          <li class="last"><a href="#">This is the last</a></li>
+        </ul>
+      </div>
+      <!------topnav end------->
+    </div>
+  </div>
+  <!------------------------------------------------------------------------------------->
+  <!--------德育分模块--------->
+  <div class="wrapper">
+    <div id="featured_slide" class="clear">
+      <!----------------------------->
+      <div class="overlay_left"></div>
+      <div id="featured_content">
+        <!-----德·模块------>
+        <div class="featured_box" id="fc1"><img src="../static/img/1.jpg" alt="" />
+          <div class="floater">
+            <h2>Virtue</h2><!--文本标题-->
+            <p>德</p><!--文本内容，可自行填充-->
+            <!--计划在下面设置一个文本提交框导航-->
+            <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
+          </div>
+        </div>
+        <!-----智·模块------>
+        <div class="featured_box" id="fc2"><img src="../static/img/2.jpg" alt="" />
+          <div class="floater">
+            <h2>Wisdom</h2>
+            <p>智</p>
+            <!--------文本提交框导航栏-------->
+            <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
+          </div>
+        </div>
+        <!------体·模块----->
+        <div class="featured_box" id="fc3"><img src="../static/img/3.jpg" alt="" />
+          <div class="floater">
+            <h2>Body</h2>
+            <p>体</p>
+            <!--------文本提交框导航栏-------->
+            <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
+          </div>
+        </div>
+        <!------美·模块----->
+        <div class="featured_box" id="fc4"><img src="../static/img/4.jpg" alt="" />
+          <div class="floater">
+            <h2>Beauty</h2>
+            <p>美</p>
+              <!--------文本提交框导航栏-------->
+            <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
+          </div>
+        </div>
+        <!------劳·模块---->
+        <div class="featured_box" id="fc5"><img src="../static/img/1.jpg" alt="" />
+          <div class="floater">
+            <h2>Labour</h2>
+            <p>劳</p>
+              <!--------文本提交框导航栏-------->
+            <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
+          </div>
+        </div>
+      </div>
+      <!-----------五大模块导航栏---------->
+      <ul id="featured_tabs">
+        <li><a href="#fc1">Virtue·德</a></li>
+        <li><a href="#fc2">Wisdom·智</a></li>
+        <li><a href="#fc3">Body·体</a></li>
+        <li><a href="#fc4">Beauty·美</a></li>
+        <li><a href="#fc4">Labor·劳</a></li>
+        <!--li class="last"><a href="#fc5">Latest University News &amp; Events</a></li-->
+      </ul>
+      <div class="overlay_right"></div>
+    </div>
+  </div>
+  <!--------------------------------------------------------------->
+
+  <!--------中下部栏-------->
+  <!--------此处填充一些推送-------->
+  <div class="wrapper row3">
+    <div class="rnd">
+      <div id="container" class="clear">
+        <!------------------------------>
+        <div id="homepage" class="clear">
+          <!-- ###### -->
+          <div id="left_column">
+            <h2>Prospective Students</h2>
+            <div class="imgholder"><a href="#"><img src="../static/img/6.jpg" alt="" /></a></div>
+            <h2>Current Students</h2>
+            <div class="imgholder"><a href="#"><img src="../static/img/7.jpg" alt="" /></a></div>
+            <h2>International Students</h2>
+            <div class="imgholder"><a href="#"><img src="../static/img/8.jpg" alt="" /></a></div>
+            <h2>Alumni</h2>
+            <div class="imgholder"><a href="#"><img src="../static/img/9.jpg" alt="" /></a></div>
+          </div>
+          <!-- ###### -->
+          <div id="latestnews">
+            <h2>Latest News &amp; Events</h2>
+            <ul>
+              <li class="clear">
+                <div class="imgl"><img src="../static/img/10.jpg" alt="" /></div>
+                <div class="latestnews">
+                  <p><a href="#">Sentumquisque morbi dui congue.</a></p>
+                  <p>Tongji University Moral Education <a href="#"
+                      title="Moral">Education </a>link <a href="#">content</a></p>
+                </div>
+              </li>
+              <li class="clear">
+                <div class="imgl"><img src="../static/img/11.jpg" alt="" /></div>
+                <div class="latestnews">
+                  <p><a href="#">Sentumquisque morbi dui congue.</a></p>
+                  <p>You can use and modify the template for both personal and commercial use. You must keep all
+                    copyright information and credit links in the template and associated files.</p>
+                </div>
+              </li>
+              <li class="last clear">
+                <div class="imgl"><img src="../static/img/12.jpg" alt="" /></div>
+                <div class="latestnews">
+                  <p><a href="#">Sentumquisque morbi dui congue.</a></p>
+                  <p> For more CSS templates visit <a href="#">Free Website Templates</a>. Attincidunt vel nam a
+                    maurisus lacinia consectetus magnisl sed ac morbi. Inmaurisus habitur pretium eu et ac vest
+                    penatibus id lacus parturpis.</p>
+                </div>
+              </li>
+            </ul>
+            <p class="readmore"><a href="#">Click here to view all of the latest news and events &raquo;</a></p>
+          </div>
+          <!------------------------>
+          <div id="right_column">
+            <div class="holder">
+              <h2>Virtual Tour</h2>
+              <a href="#"><img src="../static/img/video.gif" alt="" /></a>
+            </div>
+            <div class="holder">
+              <h2>Quick Information</h2>
+              <div class="apply"><a href="#"><img src="../static/img/13.jpg" alt="" /> <strong>Make An Application</strong></a>
+              </div>
+              <div class="apply"><a href="#"><img src="../static/img/14.jpg" alt="" /> <strong>Order A Prospectus</strong></a>
+              </div>
+            </div>
+          </div>
+          <!-------------------------->
+        </div>
+        <!-------------------------------------------------------------------->
+        <div id="twitter" class="clear">
+          <div class="fl_left"><a href="#">Follow Us On Twitter</a></div>
+          <div class="fl_right">Inteligula congue id elis donec sce sagittis intes id laoreet aenean. Massawisi condisse
+            leo sem ac tincidunt nibh quis dui fauctor et donecnibh elis velit <a href="#">@name</a> - 10:15 AM
+            yesterday</div>
+        </div>
+        <!--------------------------------------------------------------------->
+        <div id="academiclinks" class="clear">
+          <h2>Quickly Find What You Are Looking For</h2>
+          <div class="linkbox">
+            <ul>
+              <li><a href="#">&raquo; Academic Advisory</a></li>
+              <li><a href="#">&raquo; Academic Assistance</a></li>
+              <li><a href="#">&raquo; Academic Calendars</a></li>
+              <li><a href="#">&raquo; Academics Office</a></li>
+              <li><a href="#">&raquo; Administration</a></li>
+              <li><a href="#">&raquo; Adult Learners</a></li>
+              <li><a href="#">&raquo; Alumni Chapters</a></li>
+              <li><a href="#">&raquo; Alumni Events</a></li>
+              <li><a href="#">&raquo; Athletics</a></li>
+              <li><a href="#">&raquo; Campus Life At a Glance</a></li>
+              <li><a href="#">&raquo; Campus Recreation</a></li>
+              <li><a href="#">&raquo; Campus Safety &amp; Security</a></li>
+            </ul>
+          </div>
+          <div class="linkbox">
+            <ul>
+              <li><a href="#">&raquo; Class Schedules</a></li>
+              <li><a href="#">&raquo; Counselling Center</a></li>
+              <li><a href="#">&raquo; Course Descriptions and Catalogue</a></li>
+              <li><a href="#">&raquo; Department Directory</a></li>
+              <li><a href="#">&raquo; Departments &amp; Programs</a></li>
+              <li><a href="#">&raquo; Fellowships</a></li>
+              <li><a href="#">&raquo; Finals Schedules</a></li>
+              <li><a href="#">&raquo; Financial Aid</a></li>
+              <li><a href="#">&raquo; Fitness and Recreation Facilities</a></li>
+              <li><a href="#">&raquo; Global Learning</a></li>
+              <li><a href="#">&raquo; Graduate</a></li>
+              <li><a href="#">&raquo; Graduate Admissions</a></li>
+            </ul>
+          </div>
+          <div class="linkbox">
+            <ul>
+              <li><a href="#">&raquo; Graduate Health Services</a></li>
+              <li><a href="#">&raquo; Graduate Housing</a></li>
+              <li><a href="#">&raquo; Graduate Programs</a></li>
+              <li><a href="#">&raquo; Graduate Student Association</a></li>
+              <li><a href="#">&raquo; Graduate Studies</a></li>
+              <li><a href="#">&raquo; Honours Program</a></li>
+              <li><a href="#">&raquo; Interactive Schedule</a></li>
+              <li><a href="#">&raquo; International Programs</a></li>
+              <li><a href="#">&raquo; International Students</a></li>
+              <li><a href="#">&raquo; Intramural Sports</a></li>
+              <li><a href="#">&raquo; Language Resources</a></li>
+              <li><a href="#">&raquo; Maps and Directions</a></li>
+            </ul>
+          </div>
+          <div class="linkbox last">
+            <ul>
+              <li><a href="#">&raquo; Office of the Registrar</a></li>
+              <li><a href="#">&raquo; Online Learning</a></li>
+              <li><a href="#">&raquo; Parent Information</a></li>
+              <li><a href="#">&raquo; Residence Life</a></li>
+              <li><a href="#">&raquo; Residential Colleges</a></li>
+              <li><a href="#">&raquo; Schools and Colleges</a></li>
+              <li><a href="#">&raquo; Student Activities</a></li>
+              <li><a href="#">&raquo; Student Affairs</a></li>
+              <li><a href="#">&raquo; Student Development</a></li>
+              <li><a href="#">&raquo; Student Financial Services</a></li>
+              <li><a href="#">&raquo; Student Group Directory</a></li>
+              <li><a href="#">&raquo; Student Life</a></li>
+            </ul>
+          </div>
+        </div>
+        <!---------------------------------------------------------------->
+      </div>
+    </div>
+  </div>
+  <!-- ####################################################################################################### -->
+  <div class="wrapper row4">
+    <div class="rnd">
+      <div id="footer" class="clear">
+        <!-- ####################################################################################################### -->
+        <div class="fl_left clear">
+          <div class="fl_left center"><img src="../static/img/demo/worldmap.gif" alt="" /><br />
+            <a href="#">Find Us With Google Maps &raquo;</a></div>
+          <address>
+            Address Line 1<br />
+            Address Line 2<br />
+            Town/City<br />
+            Postcode/Zip<br />
+            <br />
+            Tel: xxxx xxxx xxxxxx<br />
+            Email: <a href="#">contact@domain.com</a>
+          </address>
+        </div>
+        <div class="fl_right">
+          <div id="social" class="clear">
+            <p>Stay Up to Date With Whats Happening</p>
+            <ul>
+              <li><a style="background-position:0 0;" href="#">Twitter</a></li>
+              <li><a style="background-position:-72px 0;" href="#">LinkedIn</a></li>
+              <li><a style="background-position:-142px 0;" href="#">Facebook</a></li>
+              <li><a style="background-position:-212px 0;" href="#">Flickr</a></li>
+              <li><a style="background-position:-282px 0;" href="#">RSS</a></li>
+            </ul>
+          </div>
+          <div id="newsletter">
+            <form action="#" method="post">
+              <fieldset>
+                <legend>Subscribe To Our Newsletter:</legend>
+                <input type="text" value="Enter Email Here&hellip;"
+                  onfocus="this.value=(this.value=='Enter Email Here&hellip;')? '' : this.value ;" />
+                <input type="text" id="subscribe" value="Submit" />
+              </fieldset>
+            </form>
+          </div>
+        </div>
+        <!-- ####################################################################################################### -->
+      </div>
+    </div>
+  </div>
+  <!-- ####################################################################################################### -->
+  </div>
+</body>
+
+</html>
