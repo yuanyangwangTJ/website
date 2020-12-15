@@ -14,16 +14,10 @@ Author: king
 	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-	<!-- Google Font -->
-	<link href="../../vendors/styles/google_font.css" rel="stylesheet">
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="../../vendors/styles/core.css">
 	<link rel="stylesheet" type="text/css" href="../../vendors/styles/icon-font.min.css">
-	<link rel="stylesheet" type="text/css" href="../../src/plugins/jvectormap/jquery-jvectormap-2.0.3.css">
 	<link rel="stylesheet" type="text/css" href="../../vendors/styles/style.css">
-
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="../../vendors/scripts/google.js"></script>
 
     <!--Get time-->
 	<script>
@@ -223,7 +217,8 @@ Author: king
 		</div>
     </div>
     
-    <!--主体内容，显示德育分数-->
+	<!--主体内容，显示德育分数-->
+	<!--begin main-container-->
 	<div class="mobile-menu-overlay"></div>
 	<div class="main-container">
 		<div class="xs-pd-20-10 pd-ltr-20">
@@ -256,7 +251,6 @@ Author: king
 				<div class="col-lg-3 col-md-6 col-sm-12 mb-30">
 					<div class="card-box pd-30 height-100-p">
 						<div class="progress-box text-center">
-							<input type="text" class="knob dial1" value="80" data-width="120" data-height="120" data-linecap="round" data-thickness="0.12" data-bgColor="#fff" data-fgColor="#1b00ff" data-angleOffset="180" readonly>
 							<h5 class="text-blue padding-top-10 h5">Virtue Score</h5>
 							<span class="d-block">80% Average <i class="fa fa-line-chart text-blue"></i></span>
 						</div>
@@ -265,7 +259,6 @@ Author: king
 				<div class="col-lg-3 col-md-6 col-sm-12 mb-30">
 					<div class="card-box pd-30 height-100-p">
 						<div class="progress-box text-center">
-							 <input type="text" class="knob dial4" value="70" data-width="120" data-height="120" data-linecap="round" data-thickness="0.12" data-bgColor="#fff" data-fgColor="#00e091" data-angleOffset="180" readonly>
 							<h5 class="text-light-green padding-top-10 h5">Wisdom Score</h5>
 							<span class="d-block">75% Average <i class="fa text-light-green fa-line-chart"></i></span>
 						</div>
@@ -274,7 +267,6 @@ Author: king
 				<div class="col-lg-3 col-md-6 col-sm-12 mb-30">
 					<div class="card-box pd-30 height-100-p">
 						<div class="progress-box text-center">
-							 <input type="text" class="knob dial3" value="90" data-width="120" data-height="120" data-linecap="round" data-thickness="0.12" data-bgColor="#fff" data-fgColor="#f56767" data-angleOffset="180" readonly>
 							<h5 class="text-light-orange padding-top-10 h5">Body Score</h5>
 							<span class="d-block">90% Average <i class="fa text-light-orange fa-line-chart"></i></span>
 						</div>
@@ -283,7 +275,6 @@ Author: king
 				<div class="col-lg-3 col-md-6 col-sm-12 mb-30">
 					<div class="card-box pd-30 height-100-p">
 						<div class="progress-box text-center">
-							 <input type="text" class="knob dial4" value="65" data-width="120" data-height="120" data-linecap="round" data-thickness="0.12" data-bgColor="#fff" data-fgColor="#a683eb" data-angleOffset="180" readonly>
 							<h5 class="text-light-purple padding-top-10 h5">Beauty Score</h5>
 							<span class="d-block">65% Average <i class="fa text-light-purple fa-line-chart"></i></span>
 						</div>
@@ -293,7 +284,6 @@ Author: king
                 <div class="col-lg-3 col-md-6 col-sm-12 mb-30">
 					<div class="card-box pd-30 height-100-p">
 						<div class="progress-box text-center">
-							<input type="text" class="knob dial1" value="80" data-width="120" data-height="120" data-linecap="round" data-thickness="0.12" data-bgColor="#fff" data-fgColor="#1b00ff" data-angleOffset="180" readonly>
 							<h5 class="text-blue padding-top-10 h5">Labor Score</h5>
 							<span class="d-block">80% Average <i class="fa fa-line-chart text-blue"></i></span>
 						</div>
@@ -303,7 +293,6 @@ Author: king
                 <div class="col-lg-3 col-md-6 col-sm-12 mb-30">
 					<div class="card-box pd-30 height-100-p">
 						<div class="progress-box text-center">
-							 <input type="text" class="knob dial4" value="65" data-width="120" data-height="120" data-linecap="round" data-thickness="0.12" data-bgColor="#fff" data-fgColor="#a683eb" data-angleOffset="180" readonly>
 							<h5 class="text-light-purple padding-top-10 h5">Total Score</h5>
 							<span class="d-block">65% Average <i class="fa text-light-purple fa-line-chart"></i></span>
 						</div>
@@ -313,7 +302,6 @@ Author: king
 				<div class="col-lg-3 col-md-6 col-sm-12 mb-30">
 					<div class="card-box pd-30 height-100-p">
 						<div class="progress-box text-center">
-							 <input type="text" class="knob dial3" value="35" data-width="120" data-height="120" data-linecap="round" data-thickness="0.12" data-bgColor="#fff" data-fgColor="#f56767" data-angleOffset="180" readonly>
 							<h5 class="text-light-orange padding-top-10 h5">Rest Score</h5>
 							<span class="d-block">35% Average <i class="fa text-light-orange fa-line-chart"></i></span>
 						</div>
@@ -328,14 +316,6 @@ Author: king
 	</div>
 	<!-- js -->
 	<script src="../../vendors/scripts/core.js"></script>
-	<script src="../../vendors/scripts/script.min.js"></script>
-	<script src="../../vendors/scripts/process.js"></script>
 	<script src="../../vendors/scripts/layout-settings.js"></script>
-	<script src="../../src/plugins/jQuery-Knob-master/jquery.knob.min.js"></script>
-	<script src="../../src/plugins/highcharts-6.0.7/code/highcharts.js"></script>
-	<script src="../../src/plugins/highcharts-6.0.7/code/highcharts-more.js"></script>
-	<script src="../../src/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
-	<script src="../../src/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-	<script src="../../vendors/scripts/dashboard2.js"></script>
 </body>
 </html>
