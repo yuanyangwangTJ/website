@@ -1,3 +1,10 @@
+<!-----------------------
+Name: login.html
+Function: 用户登录界面
+Author: king
+Status: continue
+------------------------>
+
 <!DOCTYPE HTML>
 <html lang="en">
 <html>
@@ -13,17 +20,19 @@
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 <script src="../static/js/SakuraFall.js"></script>
+
 <body class="body">
 
     <div class="login-page">
         <div class="form">
 
-            <form>
-                <lottie-player
-                    src="../static/json/login.json"
-                    background="transparent" speed="1" style="justify-content: center;" loop autoplay></lottie-player>
-                <input type="text" placeholder="&#xf007;  username" />
-                <input type="password" placeholder="&#xf023;  password" />
+            <form action="{{ url_for('auth.login') }}" method="POST">
+                <lottie-player src="../static/json/login.json" background="transparent" speed="1"
+                    style="justify-content: center;" loop autoplay></lottie-player>
+                    {{text}}        <!--此处为信息反馈，比如错误信息反馈-->
+                <input type="text" placeholder="&#xf007;  username" name="userid" oninput="value=value.replace(/[^\d]/g,'')"
+                    maxlength="8" />
+                <input type="password" placeholder="&#xf023;  password" name="password" maxlength="30" />
                 <button>LOGIN</button>
                 <p class="message"></p>
             </form>
