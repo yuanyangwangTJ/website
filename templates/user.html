@@ -18,6 +18,7 @@ Author: king
 	<meta http-equiv="imagetoolbar" content="no" />
 
 	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="../static/css/style.css">
 	<link rel="stylesheet" type="text/css" href="../vendors/styles/core.css">     
 	<link rel="stylesheet" type="text/css" href="../vendors/styles/icon-font.min.css">
 	<link rel="stylesheet" type="text/css" href="../vendors/styles/style.css">     
@@ -83,6 +84,14 @@ Author: king
 		</div>
 	</div>
 	<!-- ####################################################################################################### -->
+	<!--日历小挂件-->
+	<div class="canlenda">
+		<div class="col-md-4 col-sm-12 text-center">
+			<div class="mb-20">
+				<div class="datepicker-here" data-timepicker="true" data-language='en'></div>
+			</div>
+		</div>
+	</div>
 
 	<!--主体内容，显示德育分数-->
 	<!--begin main-container-->
@@ -179,7 +188,6 @@ Author: king
 				</div>
 			</div>
 
-
 			<!-- ####################################################################################################### -->
 			<!--此处用来打表，将该名用户报名活动输出出来-->
 			<div class="page-header">
@@ -219,9 +227,11 @@ Author: king
 			<!-- ####################################################################################################### -->
 		</div>
 	</div>
+	
 	<!-- js -->
-<!--	<script src="../vendors/scripts/core.js"></script>
-	<script src="../vendors/scripts/layout-settings.js"></script>   -->
+	<!--日历启动的核心js-->
+	<script src="../vendors/scripts/core.js"></script>
+
 </body>
 
 </html>

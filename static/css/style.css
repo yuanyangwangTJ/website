@@ -44,3 +44,12 @@ body {
     color: white;
     box-shadow: 5px 5px 3px gray;
 }
+
+/*日历样式编辑*/
+.canlenda {
+    width: 250px;
+    height: auto;
+    float: left;
+    margin: 23px auto;
+    position: fixed;
+}
