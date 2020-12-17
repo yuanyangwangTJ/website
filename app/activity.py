@@ -2,25 +2,28 @@ from flask import Blueprint, flash, g, redirect, render_template, request, sessi
 
 from app.database import db, User, Activity, Apply
 
-bp = Blueprint('act', __name__, url_prefix='/act')
+bp = Blueprint('act', __name__)
 
-@bp.route('/new/', methods=['POST', 'GET'])  # 新建活动
+# TO-DO complete the activity info transfer to database
+# fill in the blank like 'src=' or 'href'
+
+@bp.route('/new', methods=['POST', 'GET'])  # 新建活动
 def new():
     if (session['usertype'] != 'admin'):
         return redirect(url_for('home'))
 
     if (request.method == 'GET'):
-        return render_template("act/new.html")
+        return render_template("new.html")
     else:
         actname = request.form.get('actname')
         context = request.form.get('context')
         if (actname == ""):
-            return render_template("act/new.html", text="请填入活动名称")
+            return render_template("new.html", text="请填入活动名称")
         acti = Activity(name=actname, text=context)
         db.session.add(acti)
         db.session.commit()
 
-    return redirect(url_for('act.new'))
+    return redirect(url_for('new'))
 
 
 @bp.route('/<int:id>/', methods=['POST', 'GET'])
@@ -44,4 +47,4 @@ def activity(id):
         'session': session,
         'act': act
     }
-    return render_template("act/activity.html", **args)
+    return render_template("activity.html", **args)

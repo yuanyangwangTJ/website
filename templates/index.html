@@ -21,10 +21,10 @@
       <!--以下几个部分关于右上角，除Home外其他待修改-->
       <div class="fl_right">
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href={{url_for("home")}}>Home</a></li>
           <li><a href="#">Contact Us</a></li>
           <li><a href="#">A - Z Index</a></li>
-          <li><a href="#">Student Login</a></li>
+          <li><a href={{url_for("auth.login")}}>Student Login</a></li>
           <li class="last"><a href="#">Staff Login</a></li>
         </ul>
         <form action="#" method="post" id="sitesearch">
@@ -53,7 +53,7 @@
           <li><a href="Body.html">Body Activity</a></li>
           <li><a href="Beauty.html">Beauty Activity</a></li>
           <li><a href="Labor.html">Labor Activity</a></li>
-          <li class="last"><a href="#">User Page</a></li>
+          <li class="last"><a href={{url_for("space.personal_page")}}>User Page</a></li>
           <!--个人建议将首页放在这里，但也有人提议放在其他地方-->
         </ul>
       </div>
