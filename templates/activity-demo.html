@@ -1,113 +1,43 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-  <title>Second Classroom</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="imagetoolbar" content="no" />
-<link rel="stylesheet" href="../static/css/layout.css" type="text/css" />
-</head>
-<body id="top">
-  <div class="wrapper row1">
-    <div id="header" class="clear">
-      <div class="fl_left">
-        <h1><a href="index.html">Second Classroom</a></h1>
-        <p>College of Electronics and Information Engineering</p>
-      </div>
-      <!--以下几个部分关于右上角，除Home外其他待修改-->
-      <div class="fl_right">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">A - Z Index</a></li>
-          <li><a href="#">Student Login</a></li>
-          <li class="last"><a href="#">Staff Login</a></li>
-        </ul>
-        <form action="#" method="post" id="sitesearch">
-          <fieldset>
-            <strong>Search:</strong>
-            <input type="text" value="Search Our Website&hellip;"
-              onfocus="this.value=(this.value=='Search Our Website&hellip;')? '' : this.value ;" />
-            <input type="image" src="../static/img/search.gif" id="search" alt="Search" />
-          </fieldset>
-        </form>
-      </div>
-    </div>
-  </div>
-<!-- ####################################################################################################### -->
-<div class="wrapper row2">
-  <div class="rnd">
-    <!-- ###### -->
-    <div id="topnav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="Virtue.html">Virtue Activity</a></li>
-        <li><a href="Wisdom.html">Wisdom Activity</a></li>
-        <li><a href="Body.html">Body Activity</a></li>
-        <li><a href="Beauty.html">Beauty Activity</a></li>
-        <li><a href="Labor.html">Labor Activity</a></li>
-        <li class="last"><a href="user.html">User Page</a></li>
-        <!--个人建议将首页放在这里，但也有人提议放在其他地方-->
-      </ul>
-    </div>
-    <!-- ###### -->
-  </div>
-</div>
-<!-- ####################################################################################################### -->
-<div class="wrapper row3">
-  <div class="rnd">
-    <div id="container" class="clear">
-      <!-- ####################################################################################################### -->
-      <h1>这里是活动标题，从后端抓取</h1>
-      <p>这里是活动正文内容，从后端抓取,然后是图片界面，也从后端抓取，下面的模板内容我没有删除，报名按钮可以直接以链接形式给出</p>
-      <img class="imgr" src="../static/img/demo/imgr.gif" alt="" width="125" height="125" />
+﻿{% extends 'Base.html' %}
 
-      <p>This is a W3C compliant free website template from <a href="http://www.freemoban.com/" title="免费模板网">网站模板</a>. This template is distributed using a <a href="#">Website Template Licence</a>.</p>
-      <p>You can use and modify the template for both personal and commercial use. You must keep all copyright information and credit links in the template and associated files. For more CSS templates visit <a href="#">Free Website Templates</a>.</p>
-      <ul>
-        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-        <li>Etiam vel sapien et est adipiscing commodo.</li>
-        <li>Duis pharetra eleifend sapien, id faucibus dolor rutrum et.</li>
-        <li>Donec et dui dolor, in lacinia leo.</li>
-        <li>Mauris posuere tellus ac purus adipiscing dapibus.</li>
-      </ul>
-      <p>Vestibulumaccumsan egestibulum eu justo convallis augue estas aenean elit intesque sed. Facilispede estibulum nulla orna nisl velit elit ac aliquat non tincidunt. Namjusto cras urna urnaretra lor urna neque sed quis orci nulla. Laoremut vitae doloreet condimentumst phasellentes dolor ut a ipsum id consectetus. Inpede cumst vitae ris tellentesque fring intesquet nibh fames nulla curabitudin.</p>
-      <ol>
-        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-        <li>Etiam vel sapien et est adipiscing commodo.</li>
-        <li>Duis pharetra eleifend sapien, id faucibus dolor rutrum et.</li>
-        <li>Donec et dui dolor, in lacinia leo.</li>
-        <li>Mauris posuere tellus ac purus adipiscing dapibus.</li>
-      </ol>
-      <!-- ####################################################################################################### -->
-    </div>
-  </div>
-</div>
-<!-- ####################################################################################################### -->
-<div class="wrapper row4">
-  <div class="rnd">
-    <div id="footer" class="clear">
-      <!-- ####################################################################################################### -->
-      <div class="fl_left clear">
-        <!--高德地图链接-->
-        <div class="fl_left center"><img src="../static/img/demo/worldmap.gif" alt="" /><br />
-          <a
-            href="https://www.amap.com/search?id=B00155HU50&city=310114&geoobj=121.447275%7C31.268923%7C121.458199%7C31.274481&query_type=IDQ&query=%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6%E5%98%89%E5%AE%9A%E6%A0%A1%E5%8C%BA&zoom=17.5">
-            Find Us With AMap &raquo;</a></div>
-        <address>
-          Address Line 1: Tongji University<br />
-          Address Line 2: 4800, Cao'an Road, Huangdu Town, Jiading District<br />
-          City: Shanghai City<br />
-          Postcode: 200000<br />
-          <br />
-          Tel: (021)69589979<br />
-          Email: <a href="mailto:dxwg@tongji.edu.cn">dxwg@tongji.edu.cn</a>
-        </address>
+{% block title %}
+  Activities
+{% endblock title %}
+
+{% block content %}
+  <div class="wrapper row3">
+    <div class="rnd">
+      <div id="container" class="clear">
+        <!-- ####################################################################################################### -->
+        <h1>这里是活动标题，从后端抓取</h1>
+        <p>这里是活动正文内容，从后端抓取,然后是图片界面，也从后端抓取，下面的模板内容我没有删除，报名按钮可以直接以链接形式给出</p>
+        <img class="imgr" src="../static/img/demo/imgr.gif" alt="" width="125" height="125" />
+
+        <p>This is a W3C compliant free website template from <a href="http://www.freemoban.com/"
+            title="免费模板网">网站模板</a>. This template is distributed using a <a href="#">Website Template Licence</a>.</p>
+        <p>You can use and modify the template for both personal and commercial use. You must keep all copyright
+          information and credit links in the template and associated files. For more CSS templates visit <a
+            href="#">Free Website Templates</a>.</p>
+        <ul>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+          <li>Etiam vel sapien et est adipiscing commodo.</li>
+          <li>Duis pharetra eleifend sapien, id faucibus dolor rutrum et.</li>
+          <li>Donec et dui dolor, in lacinia leo.</li>
+          <li>Mauris posuere tellus ac purus adipiscing dapibus.</li>
+        </ul>
+        <p>Vestibulumaccumsan egestibulum eu justo convallis augue estas aenean elit intesque sed. Facilispede estibulum
+          nulla orna nisl velit elit ac aliquat non tincidunt. Namjusto cras urna urnaretra lor urna neque sed quis orci
+          nulla. Laoremut vitae doloreet condimentumst phasellentes dolor ut a ipsum id consectetus. Inpede cumst vitae
+          ris tellentesque fring intesquet nibh fames nulla curabitudin.</p>
+        <ol>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+          <li>Etiam vel sapien et est adipiscing commodo.</li>
+          <li>Duis pharetra eleifend sapien, id faucibus dolor rutrum et.</li>
+          <li>Donec et dui dolor, in lacinia leo.</li>
+          <li>Mauris posuere tellus ac purus adipiscing dapibus.</li>
+        </ol>
+        <!-- ####################################################################################################### -->
       </div>
-    <!-- ####################################################################################################### -->
     </div>
   </div>
-</div>
-<!-- ####################################################################################################### -->
-</div>
-</body>
-</html>
+{% endblock content %}

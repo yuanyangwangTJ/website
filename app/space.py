@@ -14,7 +14,7 @@ def personal_page():
     user_id = session['user_id']
     user = User.query.filter(User.id == user_id).first()
     if not user:
-        return render_template('pages/user.html', user_id=None, profile_image_path=None, user=None)
+        return render_template('user.html', user_id=None, profile_image_path=None, user=None)
 
     if not (user.profile_image_path and user.profile_image_name):
         profile_image_path = None
@@ -22,8 +22,8 @@ def personal_page():
         profile_image_path = os.path.join(
         user.profile_image_path, user.profile_image_name)
 
-    return render_template('pages/user.html', user_id=user_id, profile_image_path=profile_image_path, user=user)
+    return render_template('user.html', user_id=user_id, profile_image_path=profile_image_path, user=user)
 
 
-# TO-DO need to build socre display part according to the pattern in pages/user.html
+# TO-DO need to build socre display part according to the pattern in user.html
 

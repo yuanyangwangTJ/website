@@ -1,132 +1,39 @@
-<!DOCTYPE html>
-<html>
-<title>Second Classroom | Body</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="imagetoolbar" content="no" />
-<link rel="stylesheet" href="../static/css/layout.css" type="text/css" />
-</head>
+{% extends 'Base.html' %}
 
-<body id="top">
-    <div class="wrapper row1">
-        <div id="header" class="clear">
-            <div class="fl_left">
-                <h1><a href="index.html">Second Classroom</a></h1>
-                <p>College of Electronics and Information Engineering</p>
-            </div>
+<!-- 这是一个用 jinja2 从Base.html渲染得到的实例 需要启动 flask 环境后才能看到-->
+<!-- 这样可以避免一项修改多处寻找 -->
 
-            <div class="fl_right">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">A - Z Index</a></li>
-                    <li><a href="#">Student Login</a></li>
-                    <li class="last"><a href="#">Staff Login</a></li>
-                </ul>
-                <form action="#" method="post" id="sitesearch">
-                    <fieldset>
-                        <strong>Search:</strong>
-                        <input type="text" value="Search Our Website&hellip;"
-                            onfocus="this.value=(this.value=='Search Our Website&hellip;')? '' : this.value ;" />
-                        <input type="image" src="../static/img/search.gif" id="search" alt="Search" />
-                    </fieldset>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- ####################################################################################################### -->
-    <div class="wrapper row2">
-        <div class="rnd">
-            <!-- ###### -->
-            <div id="topnav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="Virtue.html">Virtue Activity</a></li>
-                    <li><a href="Wisdom.html">Wisdom Activity</a></li>
-                    <li class="active"><a href="Body.html">Body Activity</a></li>
-                    <li><a href="Beauty.html">Beauty Activity</a></li>
-                    <li><a href="Labor.html">Labor Activity</a></li>
-                    <li class="last"><a href="user.html">User Page</a></li>
-                          </ul>
-            </div>
-            <!-- ###### -->
-        </div>
-    </div>
-    <!-- ####################################################################################################### -->
-    <div class="wrapper row3">
-        <div class="rnd">
-            <div id="container" class="clear">
-                <!-- ####################################################################################################### -->
-                <!--此处为活动页面，应该从后端数据库读取数据，然后全部加载出来-->
-                <div id="portfolio">
-                    <ul>
-                        <li><img src="../static/img/demo/420x190.gif" alt="" />
-                            <h2>Metridiculis conseque quis</h2>
-                            <p>Orciinterdum condimenterdum nullamcorper elit nam curabitur laoreet met praesenean et
-                                iaculum. Metridiculis conseque quis iaculum aenean nunc aenean quis nam nis dui.</p>
-                            <p class="readmore"><a href="#">Read More Here &raquo;</a></p>
-                        </li>
-                        <li class="last"><img src="../static/img/demo/420x190.gif" alt="" />
-                            <h2>Metridiculis conseque quis</h2>
-                            <p>Orciinterdum condimenterdum nullamcorper elit nam curabitur laoreet met praesenean et
-                                iaculum. Metridiculis conseque quis iaculum aenean nunc aenean quis nam nis dui.</p>
-                            <p class="readmore"><a href="#">Read More Here &raquo;</a></p>
-                        </li>
-                        <li><img src="../static/img/demo/420x190.gif" alt="" />
-                            <h2>Metridiculis conseque quis</h2>
-                            <p>Orciinterdum condimenterdum nullamcorper elit nam curabitur laoreet met praesenean et
-                                iaculum. Metridiculis conseque quis iaculum aenean nunc aenean quis nam nis dui.</p>
-                            <p class="readmore"><a href="#">Read More Here &raquo;</a></p>
-                        </li>
-                        <li class="last"><img src="../static/img/demo/420x190.gif" alt="" />
-                            <h2>Metridiculis conseque quis</h2>
-                            <p>Orciinterdum condimenterdum nullamcorper elit nam curabitur laoreet met praesenean et
-                                iaculum. Metridiculis conseque quis iaculum aenean nunc aenean quis nam nis dui.</p>
-                            <p class="readmore"><a href="#">Read More Here &raquo;</a></p>
-                        </li>
-                        <li><img src="../static/img/demo/420x190.gif" alt="" />
-                            <h2>Metridiculis conseque quis</h2>
-                            <p>Orciinterdum condimenterdum nullamcorper elit nam curabitur laoreet met praesenean et
-                                iaculum. Metridiculis conseque quis iaculum aenean nunc aenean quis nam nis dui.</p>
-                            <p class="readmore"><a href="#">Read More Here &raquo;</a></p>
-                        </li>
-                        <li class="last"><img src="../static/img/demo/420x190.gif" alt="" />
-                            <h2>Metridiculis conseque quis</h2>
-                            <p>Orciinterdum condimenterdum nullamcorper elit nam curabitur laoreet met praesenean et
-                                iaculum. Metridiculis conseque quis iaculum aenean nunc aenean quis nam nis dui.</p>
-                            <p class="readmore"><a href="#">Read More Here &raquo;</a></p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ####################################################################################################### -->
-    <div class="wrapper row4">
-        <div class="rnd">
-            <div id="footer" class="clear">
-                <!-- ####################################################################################################### -->
-                <div class="fl_left clear">
-                    <!--高德地图链接-->
-                    <div class="fl_left center"><img src="../static/img/demo/worldmap.gif" alt="" /><br />
-                        <a
-                            href="https://www.amap.com/search?id=B00155HU50&city=310114&geoobj=121.447275%7C31.268923%7C121.458199%7C31.274481&query_type=IDQ&query=%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6%E5%98%89%E5%AE%9A%E6%A0%A1%E5%8C%BA&zoom=17.5">
-                            Find Us With AMap &raquo;</a></div>
-                    <address>
-                        Address Line 1: Tongji University<br />
-                        Address Line 2: 4800, Cao'an Road, Huangdu Town, Jiading District<br />
-                        City: Shanghai City<br />
-                        Postcode: 200000<br />
-                        <br />
-                        Tel: (021)69589979<br />
-                        Email: <a href="mailto:dxwg@tongji.edu.cn">dxwg@tongji.edu.cn</a>
-                    </address>
-                </div>
-                <!-- ####################################################################################################### -->
-            </div>
-        </div>
-    </div>
-    <!-- ####################################################################################################### -->
-    </div>
-</body>
+{% block title %}
+    Body
+{% endblock title %}
 
-</html>
+{% block content %}
+<div id="portfolio">
+    <ul>
+        <li><img src="../static/img/demo/420x190.gif" alt="" />
+            <h2>Metridiculis conseque quis</h2>
+            <p>Orciinterdum condimenterdum nullamcorper elit nam curabitur laoreet met praesenean et
+                iaculum. Metridiculis conseque quis iaculum aenean nunc aenean quis nam nis dui.</p>
+            <p class="readmore"><a href="#">Read More Here &raquo;</a></p>
+        </li>
+        <li class="last"><img src="../static/img/demo/420x190.gif" alt="" />
+            <h2>Metridiculis conseque quis</h2>
+            <p>Orciinterdum condimenterdum nullamcorper elit nam curabitur laoreet met praesenean et
+                iaculum. Metridiculis conseque quis iaculum aenean nunc aenean quis nam nis dui.</p>
+            <p class="readmore"><a href="#">Read More Here &raquo;</a></p>
+        </li>
+        <li><img src="../static/img/demo/420x190.gif" alt="" />
+            <h2>Metridiculis conseque quis</h2>
+            <p>Orciinterdum condimenterdum nullamcorper elit nam curabitur laoreet met praesenean et
+                iaculum. Metridiculis conseque quis iaculum aenean nunc aenean quis nam nis dui.</p>
+            <p class="readmore"><a href="#">Read More Here &raquo;</a></p>
+        </li>
+        <li class="last"><img src="../static/img/demo/420x190.gif" alt="" />
+            <h2>Metridiculis conseque quis</h2>
+            <p>Orciinterdum condimenterdum nullamcorper elit nam curabitur laoreet met praesenean et
+                iaculum. Metridiculis conseque quis iaculum aenean nunc aenean quis nam nis dui.</p>
+            <p class="readmore"><a href="#">Read More Here &raquo;</a></p>
+        </li>
+    </ul>
+</div>
+{% endblock content %}
