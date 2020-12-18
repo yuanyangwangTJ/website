@@ -5,7 +5,6 @@ import random
 
 from werkzeug.utils import secure_filename
 from flask import Flask, Blueprint, render_template, request, url_for, make_response, send_from_directory, abort, session, flash, g
-import strutil
 import base64
 
 from app.auth import login_required

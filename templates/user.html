@@ -10,7 +10,9 @@ Author: king
 <head>
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
+	{% block header %}
 	<title>Personal Data</title>
+	{% endblock header %}
 
 	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -19,9 +21,9 @@ Author: king
 
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="../static/css/style.css">
-	<link rel="stylesheet" type="text/css" href="../vendors/styles/core.css">     
-	<link rel="stylesheet" type="text/css" href="../vendors/styles/icon-font.min.css">
-	<link rel="stylesheet" type="text/css" href="../vendors/styles/style.css">     
+	<link rel="stylesheet" type="text/css" href="../static/styles/core.css">
+	<link rel="stylesheet" type="text/css" href="../static/styles/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="../static/styles/style.css">
 	<link rel="stylesheet" href="../static/css/layout.css" type="text/css" />
 
 	<!--Get time-->
@@ -38,16 +40,16 @@ Author: king
 	<div class="wrapper row1">
 		<div id="header" class="clear">
 			<div class="fl_left">
-				<h1><a href="index.html">Second Classroom</a></h1>
+				<h1><a href={{url_for('home')}}>Second Classroom</a></h1>
 				<p>College of Electronics and Information Engineering</p>
 			</div>
 			<!--以下几个部分关于右上角，除Home外其他待修改-->
 			<div class="fl_right">
 				<ul>
-					<li><a href="index.html">Home</a></li>
+					<li><a href={{url_for('home')}}>Home</a></li>
 					<li><a href="#">Contact Us</a></li>
 					<li><a href="#">A - Z Index</a></li>
-					<li><a href="#">Student Login</a></li>
+					<li><a href={{url_for('auth.login')}}>Student Login</a></li>
 					<li class="last"><a href="#">Staff Login</a></li>
 				</ul>
 				<form action="#" method="post" id="sitesearch">
@@ -70,13 +72,13 @@ Author: king
 			<!-- ###### -->
 			<div id="topnav">
 				<ul>
-					<li><a href="index.html">Home</a></li>
+					<li><a href={{url_for('home')}}>Home</a></li>
 					<li><a href="Virtue.html">Virtue Activity</a></li>
 					<li><a href="Wisdom.html">Wisdom Activity</a></li>
 					<li><a href="Body.html">Body Activity</a></li>
 					<li><a href="Beauty.html">Beauty Activity</a></li>
 					<li><a href="Labor.html">Labor Activity</a></li>
-					<li class="active" class="last"><a href="user.html">User Page</a></li>
+					<li class="active" class="last"><a href={{url_for('space.personal_page')}}>User Page</a></li>
 					<!--个人建议将首页放在这里，但也有人提议放在其他地方-->
 				</ul>
 			</div>
@@ -230,7 +232,7 @@ Author: king
 	
 	<!-- js -->
 	<!--日历启动的核心js-->
-	<script src="../vendors/scripts/core.js"></script>
+	<script src="../static/scripts/core.js"></script>
 
 </body>
 
