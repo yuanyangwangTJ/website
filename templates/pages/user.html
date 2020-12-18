@@ -6,243 +6,95 @@ Author: king
 
 <!DOCTYPE html>
 <html>
+
 <head>
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
 	{% block header %}
 	<title>Personal Data</title>
 	{% endblock header %}
-	
 
 	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="imagetoolbar" content="no" />
 
 	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="../static/styles/core.css">
-	<link rel="stylesheet" type="text/css" href="../static/styles/icon-font.min.css">
-	<link rel="stylesheet" type="text/css" href="../static/styles/style.css">
+	<link rel="stylesheet" type="text/css" href="../../static/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../static/styles/core.css">     
+	<link rel="stylesheet" type="text/css" href="../../static/styles/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="../../static/styles/style.css">     
+	<link rel="stylesheet" href="../../static/css/layout.css" type="text/css" />
 
-    <!--Get time-->
+	<!--Get time-->
 	<script>
 		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
+		function gtag() { dataLayer.push(arguments); }
 		gtag('js', new Date());
 		gtag('config', 'UA-119386393-1');
 	</script>
-
 </head>
+<!-- ####################################################################################################### -->
 
-<body>
-	<div class="header">
-        <!--begin header-left-->
-		<div class="header-left">
-            <div class="menu-icon dw dw-menu"></div>
-            <!--搜索框以及搜索按钮(按钮在向下箭头下面)-->
-			<div class="search-toggle-icon dw dw-search2" data-toggle="header_search"></div>
-			<div class="header-search">
-				<form>
-					<div class="form-group mb-0">
-						<i class="dw dw-search2 search-icon"></i>
-						<input type="text" class="form-control search-input" placeholder="Search Here">
-						<div class="dropdown">
-							<a class="dropdown-toggle no-arrow" href="#" role="button" data-toggle="dropdown">
-								<i class="ion-arrow-down-c"></i>
-							</a>
-							<div class="dropdown-menu dropdown-menu-right">
-								<div class="text-right">
-									<button class="btn btn-primary">Search</button>
-								</div>
-							</div>
-                        </div>
-                    </div>
+<body id="top">
+	<div class="wrapper row1">
+		<div id="header" class="clear">
+			<div class="fl_left">
+				<h1><a href="index.html">Second Classroom</a></h1>
+				<p>College of Electronics and Information Engineering</p>
+			</div>
+			<!--以下几个部分关于右上角，除Home外其他待修改-->
+			<div class="fl_right">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="#">Contact Us</a></li>
+					<li><a href="#">A - Z Index</a></li>
+					<li><a href="#">Student Login</a></li>
+					<li class="last"><a href="#">Staff Login</a></li>
+				</ul>
+				<form action="#" method="post" id="sitesearch">
+					<fieldset>
+						<strong>Search:</strong>
+						<input type="text" value="Search Our Website&hellip;"
+							onfocus="this.value=(this.value=='Search Our Website&hellip;')? '' : this.value ;" />
+						<input type="image" src="../static/img/search.gif" id="search" alt="Search" />
+					</fieldset>
 				</form>
-            </div>
-        </div>
-        <!--end header-left-->
-
-        <!--begin header-right-->
-		<div class="header-right">
-            <!--用户通知部分-->
-			<div class="dashboard-setting user-notification">
-				<div class="dropdown">
-					<a class="dropdown-toggle no-arrow" href="javascript:;" data-toggle="right-sidebar">
-						<i class="dw dw-settings2"></i>
-					</a>
-				</div>
 			</div>
-			<div class="user-notification">
-				<div class="dropdown">
-					<a class="dropdown-toggle no-arrow" href="#" role="button" data-toggle="dropdown">
-						<i class="icon-copy dw dw-notification"></i>
-						<span class="badge notification-active"></span>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right">
-						<div class="notification-list mx-h-350 customscroll">
-							<ul>
-								<li>
-									<a href="#">	
-										<p>Please note the notice</p>
-									</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-            </div>
-           
-			<div class="user-info-dropdown">
-				<div class="dropdown">
-					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-						{% if user %}
-							{% if profile_image_path %}
-							<span class="user-icon">
-								<!--若用户存在，则调用数据库头像-->
-								<img src={{profile_image_path}} alt="">
-							</span>
-							{% else %}
-							<span class="user-icon">
-								<!--若用户未上传图片，我们显示默认头像-->
-
-								<img src="../static/img/default_profile.jpg" alt="">
-							</span>
-							{% endif %}
-							<!--此处显示用户名-->
-							<span class="user-name">{{user_id}}</span>
-						{% else %}
-							<span class="user-icon">
-								<!--若用户不存在，我们显示默认头像-->
-
-								<img src="../static/img/default_profile.jpg" alt="">
-							</span>
-							<!--此处显示用户名-->
-							<span class="user-name">TJ university</span>
-						{% endif %}
-						
-					</a>
-					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-						<a class="dropdown-item" href={{url_for("image.profile_image_upload")}}><i class="dw dw-logout"></i> Edit Profile</a>
-						<a class="dropdown-item" href={{url_for("auth.logout")}}><i class="dw dw-logout"></i> Log Out</a>
-					</div>
-				</div>
-			</div>
-        </div>
-        <!--end header-right-->
+		</div>
 	</div>
-
-    <!--为个人界面的主题设置，后端不需要考虑更改-->
-    <!--begin right-sidebar-->
-	<div class="right-sidebar">
-		<div class="sidebar-title">
-			<h3 class="weight-600 font-16 text-blue">
-				Layout Settings
-				<span class="btn-block font-weight-400 font-12">User Interface Settings</span>
-			</h3>
-			<div class="close-sidebar" data-toggle="right-sidebar-close">
-				<i class="icon-copy ion-close-round"></i>
-			</div>
-		</div>
-		<div class="right-sidebar-body customscroll">
-			<div class="right-sidebar-body-content">
-				<h4 class="weight-600 font-18 pb-10">Header Background</h4>
-				<div class="sidebar-btn-group pb-30 mb-10">
-					<a href="javascript:void(0);" class="btn btn-outline-primary header-white active">White</a>
-					<a href="javascript:void(0);" class="btn btn-outline-primary header-dark">Dark</a>
-				</div>
-
-				<h4 class="weight-600 font-18 pb-10">Sidebar Background</h4>
-				<div class="sidebar-btn-group pb-30 mb-10">
-					<a href="javascript:void(0);" class="btn btn-outline-primary sidebar-light ">White</a>
-					<a href="javascript:void(0);" class="btn btn-outline-primary sidebar-dark active">Dark</a>
-				</div>
-
-				<div class="reset-options pt-30 text-center">
-					<button class="btn btn-danger" id="reset-settings">Reset Settings</button>
-				</div>
-			</div>
-		</div>
-    </div>
-    <!--end right-sidebar-->
-
-    <!--begin left-side-bar-->
-	<div class="left-side-bar">
-        <!--此处为logo显示界面-->
-		<div class="brand-logo">
-			<a href="user.html">
-				<img src="../static/img/tongji-logo.svg" alt="" class="dark-logo">
-				<img src="../static/img/tongji-logo-white.jpg" alt="" class="light-logo">
-			</a>
-			<div class="close-sidebar" data-toggle="left-sidebar-close">
-				<i class="ion-close-round"></i>
-			</div>
-		</div>
-
-		<div class="menu-block customscroll">
-			<div class="sidebar-menu">
-				<ul id="accordion-menu">
-					<li>
-						<a href={{url_for("space.personal_page")}} class="dropdown-toggle no-arrow">
-							<span class="micon dw dw-calendar1"></span><span class="mtext">Home</span>
-						</a>
-					</li>
-					
-					<li>
-						<a href="calendar.html" class="dropdown-toggle no-arrow">
-							<span class="micon dw dw-calendar1"></span><span class="mtext">Calendar</span>
-						</a>
-					</li>
-                    <!--接下来是五大模块的返回链接-->
-					<li class="dropdown">
-						<a href="../Virtue.html" class="dropdown-toggle">
-							<span class="micon dw dw-apartment"></span><span class="mtext">Virtue Moudle</span>
-						</a>
-					</li>
-					<li class="dropdown">
-						<a href="../Wisdom.html" class="dropdown-toggle">
-							<span class="micon dw dw-paint-brush"></span><span class="mtext">Wisdom Moudle</span>
-						</a>
-					</li>
-					<li class="dropdown">
-						<a href="../Body.html" class="dropdown-toggle">
-							<span class="micon dw dw-paint-brush"></span><span class="mtext">Body Moudle</span>
-						</a>
-					</li>
-					<li class="dropdown">
-						<a href="../Beauty.html" class="dropdown-toggle">
-							<span class="micon dw dw-paint-brush"></span><span class="mtext">Beauty Moudle</span>
-						</a>
-					</li>
-					<li class="dropdown">
-						<a href="../Labor.html" class="dropdown-toggle">
-							<span class="micon dw dw-paint-brush"></span><span class="mtext">Labor Moudle</span>
-						</a>
-					</li>
-
-					<li>
-						<div class="sidebar-small-cap">Extra</div>
-					</li>
-					<!--联系我们，加上联系方式-->
-					<li>
-						<a href="javascript:;" class="dropdown-toggle">
-							<span class="micon dw dw-edit-2"></span><span class="mtext">Contact us</span>
-						</a>
-						<ul class="submenu">
-                            <li><a href="#">Email</a></li>
-							<li><a href="#">WeChat</a></li>
-							<li><a href="#">QQ</a></li>
-							<li><a href="#">Twitter</a></li>
-						</ul>
-                    </li>
-                    <!--返回主界面-->
-					<li>
-						<a href={{url_for("home")}} class="dropdown-toggle no-arrow">
-							<span class="micon dw dw-calendar1"></span><span class="mtext">Return</span>
-						</a>
-					</li>
+	<!--以上部分为网页上端部分，各个网页关于上端部分应该相同，故修改上面部分仍何地方后要在wisdom,body等html文件中同步修改-->
+	<!--五育页面格式相同，彼此也要同步修改-->
+	<!-- ####################################################################################################### -->
+	<!--以下为导航栏,导航栏遇到的问题是文字过于居中，应该令其两侧对齐，css文件在navi.css里topnav处-->
+	<div class="wrapper row2">
+		<div class="rnd">
+			<!-- ###### -->
+			<div id="topnav">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="Virtue.html">Virtue Activity</a></li>
+					<li><a href="Wisdom.html">Wisdom Activity</a></li>
+					<li><a href="Body.html">Body Activity</a></li>
+					<li><a href="Beauty.html">Beauty Activity</a></li>
+					<li><a href="Labor.html">Labor Activity</a></li>
+					<li class="active" class="last"><a href="user.html">User Page</a></li>
+					<!--个人建议将首页放在这里，但也有人提议放在其他地方-->
 				</ul>
 			</div>
+			<!-- ###### -->
 		</div>
-    </div>
-    
+	</div>
+	<!-- ####################################################################################################### -->
+	<!--日历小挂件-->
+	<div class="canlenda">
+		<div class="col-md-4 col-sm-12 text-center">
+			<div class="mb-20">
+				<div class="datepicker-here" data-timepicker="true" data-language='en'></div>
+			</div>
+		</div>
+	</div>
+
 	<!--主体内容，显示德育分数-->
 	<!--begin main-container-->
 	<div class="mobile-menu-overlay"></div>
@@ -256,13 +108,13 @@ Author: king
 						</div>
 						<nav aria-label="breadcrumb" role="navigation">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href={{url_for("home")}}>Home</a></li>
+								<li class="breadcrumb-item"><a href="../index.html">Home</a></li>
 								<li class="breadcrumb-item active" aria-current="page">Your Score</li>
 							</ol>
 						</nav>
-                    </div>
-                    
-                    <!--在此处显示时间-->
+					</div>
+
+					<!--在此处显示时间-->
 					<div class="col-md-6 col-sm-12 text-right">
 						<div class="dropdown">
 							<a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">
@@ -274,9 +126,11 @@ Author: king
 			</div>
 
 			{% block content %}
-			
+
 			<div class="row clearfix progress-box">
-                <!--显示各个模块的分数，注意接口的分数以及百分比的计算-->
+				<!--本行的作用为保证各个模块横排-->
+
+				<!--显示各个模块的分数，注意接口的分数以及百分比的计算-->
 				<div class="col-lg-3 col-md-6 col-sm-12 mb-30">
 					<div class="card-box pd-30 height-100-p">
 						<div class="progress-box text-center">
@@ -308,9 +162,9 @@ Author: king
 							<span class="d-block">65% Average <i class="fa text-light-purple fa-line-chart"></i></span>
 						</div>
 					</div>
-                </div>
+				</div>
 
-                <div class="col-lg-3 col-md-6 col-sm-12 mb-30">
+				<div class="col-lg-3 col-md-6 col-sm-12 mb-30">
 					<div class="card-box pd-30 height-100-p">
 						<div class="progress-box text-center">
 							<h5 class="text-blue padding-top-10 h5">Labor Score</h5>
@@ -318,8 +172,8 @@ Author: king
 						</div>
 					</div>
 				</div>
-                
-                <div class="col-lg-3 col-md-6 col-sm-12 mb-30">
+
+				<div class="col-lg-3 col-md-6 col-sm-12 mb-30">
 					<div class="card-box pd-30 height-100-p">
 						<div class="progress-box text-center">
 							<h5 class="text-light-purple padding-top-10 h5">Total Score</h5>
@@ -327,7 +181,7 @@ Author: king
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="col-lg-3 col-md-6 col-sm-12 mb-30">
 					<div class="card-box pd-30 height-100-p">
 						<div class="progress-box text-center">
@@ -336,16 +190,53 @@ Author: king
 						</div>
 					</div>
 				</div>
-            </div>
-			{% endblock content %}
-			
-            <div class="footer-wrap pd-20 mb-20 card-box"><a href="https://www.tongji.edu.cn" target="_blank">
-                Toongji University</a> Computer Science 5 Group</a>
 			</div>
+			{% endblock content %}
+
+			<!-- ####################################################################################################### -->
+			<!--此处用来打表，将该名用户报名活动输出出来-->
+			<div class="page-header">
+
+				<div class="row">
+					<div class="col-md-6 col-sm-12">
+						<h4>此处用来打表，将该名用户报名活动输出出来</h4>
+					</div>
+				</div>
+			</div>
+			<!-- ####################################################################################################### -->
+			<div class="wrapper row4">
+				<div class="rnd">
+					<div id="footer" class="clear">
+						<!-- ####################################################################################################### -->
+						<div class="fl_left clear">
+							<!--高德地图链接-->
+							<div class="fl_left center"><img src="../static/img/demo/worldmap.gif" alt="" /><br />
+								<a
+									href="https://www.amap.com/search?id=B00155HU50&city=310114&geoobj=121.447275%7C31.268923%7C121.458199%7C31.274481&query_type=IDQ&query=%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6%E5%98%89%E5%AE%9A%E6%A0%A1%E5%8C%BA&zoom=17.5">
+									Find Us With AMap &raquo;</a>
+							</div>
+							<address>
+								Address Line 1: Tongji University<br />
+								Address Line 2: 4800, Cao'an Road, Huangdu Town, Jiading District<br />
+								City: Shanghai City<br />
+								Postcode: 200000<br />
+								<br />
+								Tel: (021)69589979<br />
+								Email: <a href="mailto:dxwg@tongji.edu.cn">dxwg@tongji.edu.cn</a>
+							</address>
+						</div>
+						<!-- ####################################################################################################### -->
+					</div>
+				</div>
+			</div>
+			<!-- ####################################################################################################### -->
 		</div>
 	</div>
+	
 	<!-- js -->
-	<script src="../static/scripts/core.js"></script>
-	<script src="../static/scripts/layout-settings.js"></script>
+	<!--日历启动的核心js-->
+	<script src="../../static/scripts/core.js"></script>
+
 </body>
+
 </html>
