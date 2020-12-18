@@ -2,7 +2,7 @@ import os
 
 from flask import Flask, Blueprint, flash, g, redirect, render_template, request, session, url_for
 
-from . import auth, image, config, activity, space
+from . import auth, image, config, activity, space, module
 from app.database import db, Activity, User
 
 
@@ -33,6 +33,9 @@ def create_app(app_config=None):
 
     # 个人主页蓝图
     app.register_blueprint(space.bp)
+
+    # 五大模块蓝图
+    app.register_blueprint(module.bp)
 
     @app.route("/")
     @app.route("/index")  # 主页

@@ -1,14 +1,15 @@
 ﻿<!DOCTYPE html>
 <html>
-<title>Second Classroom</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="imagetoolbar" content="no" />
-<link rel="stylesheet" href="../static/css/layout.css" type="text/css" />
-<!-- Homepage Specific Elements -->
-<script type="text/javascript" src="../static/js/jquery/jquery-1.4.1.min.js"></script>
-<script type="text/javascript" src="../static/js/jquery/jquery-ui-1.7.2.custom.min.js"></script>
-<script type="text/javascript" src="../static/js/jquery/jquery.tabs.setup.js"></script>
-<!-- End Homepage Specific Elements -->
+<head>
+  <title>Second Classroom</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="imagetoolbar" content="no" />
+  <link rel="stylesheet" href="../static/css/layout.css" type="text/css" />
+  <!-- Homepage Specific Elements -->
+  <script type="text/javascript" src="../static/js/jquery/jquery-1.4.1.min.js"></script>
+  <script type="text/javascript" src="../static/js/jquery/jquery-ui-1.7.2.custom.min.js"></script>
+  <script type="text/javascript" src="../static/js/jquery/jquery.tabs.setup.js"></script>
+  <!-- End Homepage Specific Elements -->
 </head>
 
 <body id="top">
@@ -47,15 +48,14 @@
       <!-- ###### -->
       <div id="topnav">
         <ul>
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="Virtue.html">Virtue Activity</a></li>
-          <li><a href="Wisdom.html">Wisdom Activity</a></li>
-          <li><a href="Body.html">Body Activity</a></li>
-          <li><a href="Beauty.html">Beauty Activity</a></li>
-          <li><a href="Labor.html">Labor Activity</a></li>
 
-          <li class="last"><a href={{url_for("space.personal_page")}}>User Page</a></li>
-
+          <li><a href={{url_for('home')}}>Home</a></li>
+          <li><a href={{url_for('module.virtue')}}>Virtue Activity</a></li>
+          <li><a href={{url_for('module.wisdom')}}>Wisdom Activity</a></li>
+          <li><a href={{url_for('module.body_act')}}>Body Activity</a></li>
+          <li class="active"><a href={{url_for('module.beauty')}}>Beauty Activity</a></li>
+          <li><a href={{url_for('module.labor')}}>Labor Activity</a></li>
+          <li class="last"><a href={{url_for('space.personal_page')}}>User Page</a></li>
           <!--个人建议将首页放在这里，但也有人提议放在其他地方-->
         </ul>
       </div>
