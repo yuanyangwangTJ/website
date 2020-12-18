@@ -1,0 +1,53 @@
+<!---------------------------------
+Name: pubActivity.html
+Function: 教师(管理员)发布活动
+Author: king
+Ps: Jinja2模板网站，以base.html为基础
+----------------------------------->
+
+{% extends 'base.html' %}
+
+{% block title %}Activity{% endblock title %}
+{% block active-item %}Public Activity{% endblock active-item %}
+
+<!--主体内容部分的替换-->
+{% block main-content %}
+<div class="file-submit">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title">上传活动内容与图像</h3>
+        </div>
+        <div class="panel-body">
+            <!--此处接受文本内容，为txt文件-->
+            <form action="{{ url_for('image.profile_image_upload') }}" method="POST"
+                enctype="multipart/form-data">
+                <input type="file" name="image" id="image" accept="text/plain"><br>
+                <button type="button" class="btn btn-secondary">upload</button>
+                <p class="message"></p>
+            </form>
+        </div>
+        <br><br>
+        <div class="panel-body">
+            <!--此处接受图像文件，限定为图片格式-->
+            <form action="{{ url_for('image.profile_image_upload') }}" method="POST"
+                enctype="multipart/form-data">
+                <input type="file" name="image" id="image" accept="image/*"><br>
+                <button type="button" class="btn btn-secondary">upload</button>
+                <p class="message"></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="canlenda2">
+    <div class="col-md-4 col-sm-12 text-center">
+        <div class="mb-20">
+            <div class="datepicker-here" data-timepicker="true" data-language='en'></div>
+        </div>
+    </div>
+</div>
+
+<div class="footer-wrap pd-20 mb-20 card-box"><a href="https://www.tongji.edu.cn" target="_blank">
+        Toongji University</a> Computer Science fifth Group</a>
+</div>
+{% endblock main-content %}

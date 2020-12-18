@@ -53,3 +53,21 @@ body {
     margin: 23px auto;
     position: fixed;
 }
+
+.canlenda2 {
+    width: 250px;
+    height: auto;
+    right: 5px;
+    float: right;
+    margin: 3px auto;
+    position: relative;
+}
+
+/*文本提交框*/
+.file-submit {
+    height: auto;
+    width: 800px;
+    top: 40%;
+    left: 1.5%;
+    position: relative;
+}

@@ -6,8 +6,9 @@ Author: king
 
 <!DOCTYPE html>
 <html>
+
 <head>
-	{% block head %}
+{% block head %}
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
 	<title>Administrator</title>
@@ -16,28 +17,34 @@ Author: king
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="../../static/css/style.css">
+	
 	<link rel="stylesheet" type="text/css" href="../../static/styles/core.css">
 	<link rel="stylesheet" type="text/css" href="../../static/styles/icon-font.min.css">
 	<link rel="stylesheet" type="text/css" href="../../static/styles/style.css">
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	
 
-    <!--Get time-->
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!--Get time-->
 	<script>
 		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
+		function gtag() { dataLayer.push(arguments); }
 		gtag('js', new Date());
 		gtag('config', 'UA-119386393-1');
 	</script>
-	{% endblock head %}
+{% endblock head %}
 </head>
 
 <body>
 	<!--导航栏的头部，非特殊情况不考虑模板替换-->
 	<div class="header">
 	{% block header %}
-        <!--begin header-left-->
+		<!--begin header-left-->
 		<div class="header-left">
-            <div class="menu-icon dw dw-menu"></div>
-            <!--搜索框以及搜索按钮(按钮在向下箭头下面)-->
+			<div class="menu-icon dw dw-menu"></div>
+			<!--搜索框以及搜索按钮(按钮在向下箭头下面)-->
 			<div class="search-toggle-icon dw dw-search2" data-toggle="header_search"></div>
 			<div class="header-search">
 				<form>
@@ -53,16 +60,16 @@ Author: king
 									<button class="btn btn-primary">Search</button>
 								</div>
 							</div>
-                        </div>
-                    </div>
+						</div>
+					</div>
 				</form>
-            </div>
-        </div>
-        <!--end header-left-->
+			</div>
+		</div>
+		<!--end header-left-->
 
-        <!--begin header-right-->
+		<!--begin header-right-->
 		<div class="header-right">
-            <!--用户通知部分-->
+			<!--用户通知部分-->
 			<div class="dashboard-setting user-notification">
 				<div class="dropdown">
 					<a class="dropdown-toggle no-arrow" href="javascript:;" data-toggle="right-sidebar">
@@ -80,7 +87,7 @@ Author: king
 						<div class="notification-list mx-h-350 customscroll">
 							<ul>
 								<li>
-									<a href="#">	
+									<a href="#">
 										<p>Please note the notice</p>
 									</a>
 								</li>
@@ -88,32 +95,33 @@ Author: king
 						</div>
 					</div>
 				</div>
-            </div>
-            
+			</div>
+
 			<div class="user-info-dropdown">
 				<div class="dropdown">
 					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
 						<span class="user-icon">
-                            <!--此处为用户的头像，我们显示默认头像-->
+							<!--此处为用户的头像，我们显示默认头像-->
 							<img src="../../static/img/photo1.jpg" alt="">
-                        </span>
-                        <!--此处显示用户名-->
+						</span>
+						<!--此处显示用户名-->
 						<span class="user-name">Administrator</span>
 					</a>
+					<!--此处的退出登录按钮后端需要考虑一下设置-->
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 						<a class="dropdown-item" href="../login.html"><i class="dw dw-logout"></i> Log Out</a>
 					</div>
 				</div>
 			</div>
-        </div>
+		</div>
 		<!--end header-right-->
 	{% endblock header %}
 	</div>
 
-    <!--为个人界面的主题设置，后端不需要考虑更改-->
-    <!--begin right-sidebar-->
+	<!--为个人界面的主题设置，后端不需要考虑更改-->
+	<!--begin right-sidebar-->
 	<div class="right-sidebar">
-	{% block right-sidebar %}
+		{% block right-sidebar %}
 		<div class="sidebar-title">
 			<h3 class="weight-600 font-16 text-blue">
 				Layout Settings
@@ -142,14 +150,14 @@ Author: king
 				</div>
 			</div>
 		</div>
-	{% endblock right-sidebar %}
-    </div>
-    <!--end right-sidebar-->
+		{% endblock right-sidebar %}
+	</div>
+	<!--end right-sidebar-->
 
-    <!--begin left-side-bar-->
+	<!--begin left-side-bar-->
 	<div class="left-side-bar">
-	{% block left-side-bar %}
-        <!--此处为logo显示界面-->
+		{% block left-side-bar %}
+		<!--此处为logo显示界面-->
 		<div class="brand-logo">
 			<a href="user.html">
 				<img src="../../static/img/tongji-logo.svg" alt="" class="dark-logo">
@@ -162,22 +170,22 @@ Author: king
 		<div class="menu-block customscroll">
 			<div class="sidebar-menu">
 				<ul id="accordion-menu">
-                    <!--home 界面可以显示学生申请活动的情况，教师可以进行活动审批-->
+					<!--home 界面可以显示学生申请活动的情况，教师可以进行活动审批-->
 					<li>
 						<a href="user.html" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-calendar1"></span><span class="mtext">Home</span>
 						</a>
-                    </li>
-                    
-                    <!--教师发布活动处-->
-                    <li>
+					</li>
+
+					<!--教师发布活动处-->
+					<li>
 						<a href="activity.html" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-calendar1"></span><span class="mtext">Public Activity</span>
 						</a>
 					</li>
-                    
-                    <!--下面为教师审批功能，对学生提交的活动进行审批-->
-                    <!--教师可以观看各个板块活动的提交情况-->
+
+					<!--下面为教师审批功能，对学生提交的活动进行审批-->
+					<!--教师可以观看各个板块活动的提交情况-->
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle">
 							<span class="micon dw dw-paint-brush"></span><span class="mtext">Virtue Moudle</span>
@@ -212,8 +220,8 @@ Author: king
 						<a href="javascript:;" class="dropdown-toggle">
 							<span class="micon dw dw-edit-2"></span><span class="mtext">Contact us</span>
 						</a>
-                    </li>
-                    <!--返回Home界面-->
+					</li>
+					<!--返回Home界面-->
 					<li>
 						<a href="home.html" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-calendar1"></span><span class="mtext">Return</span>
@@ -222,21 +230,21 @@ Author: king
 				</ul>
 			</div>
 		</div>
-	{% endblock left-side-bar %}
-    </div>
-    
+		{% endblock left-side-bar %}
+	</div>
+
 	<!--主题内容，可以显示标题栏的具体活动内容-->
 	<!--begin main-container-->
 	<!--此处为页面核心部分，需要修改替换-->
 	<div class="mobile-menu-overlay"></div>
 	<div class="teacher_main-container">
-	{% block main-container %}
+		{% block main-container %}
 		<div class="xs-pd-20-10 pd-ltr-20">
 			<div class="page-header">
 				<div class="row">
 					<div class="col-md-6 col-sm-12">
 						<div class="title">
-							<h4>Your Score</h4>
+							<h4>Moral Education</h4>
 						</div>
 						<nav aria-label="breadcrumb" role="navigation">
 							<ol class="breadcrumb">
@@ -244,9 +252,9 @@ Author: king
 								<li class="breadcrumb-item active" aria-current="page">{% block active-item %}Activity{% endblock active-item %}</li>
 							</ol>
 						</nav>
-                    </div>
-                    
-                    <!--在此处显示时间-->
+					</div>
+
+					<!--在此处显示时间-->
 					<div class="col-md-6 col-sm-12 text-right">
 						<div class="dropdown">
 							<a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">
@@ -256,19 +264,21 @@ Author: king
 					</div>
 				</div>
 			</div>
+
 			<div class="row clearfix progress-box">
-                <!--显示各个模块的分数，注意接口的分数以及百分比的计算-->
-				<p>下面为每个板块的具体功能</p>
-            </div>
-            
-            <div class="footer-wrap pd-20 mb-20 card-box"><a href="https://www.tongji.edu.cn" target="_blank">
-                Toongji University</a> Computer Science 5 Group</a>
+				<!--注意此处main-content 与 main-container的区别-->
+				{% block main-content %}
+				<!-----------------------------------------
+				这之间为活动的主体内容设置
+				------------------------------------------->
+				<p>主体内容</p>
+				{% endblock main-content %}
 			</div>
 		</div>
-	{% endblock main-container %}
+		{% endblock main-container %}
 	</div>
-	<!-- js -->
-	<script src="../../static/js/core.js"></script>
-	<script src="../../static/js/layout-settings.js"></script>
+		<!-- js -->
+		<script src="../../static/js/core.js"></script>
+		<script src="../../static/js/layout-settings.js"></script>
 </body>
 </html>
