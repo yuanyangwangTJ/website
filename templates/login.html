@@ -38,7 +38,9 @@ Status: continue
             </form>
 
             <form class="login-form">
-                <button type="button" onclick="window.location.href='signup.html'">SIGN UP</button>
+                <a href={{url_for("auth.regist")}}>
+                <button type="button">SIGN UP</button>
+                </a>
             </form>
         </div>
     </div>

@@ -9,15 +9,18 @@ Author: king
 <head>
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
+	{% block header %}
 	<title>Personal Data</title>
+	{% endblock header %}
+	
 
 	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="../../vendors/styles/core.css">
-	<link rel="stylesheet" type="text/css" href="../../vendors/styles/icon-font.min.css">
-	<link rel="stylesheet" type="text/css" href="../../vendors/styles/style.css">
+	<link rel="stylesheet" type="text/css" href="../static/styles/core.css">
+	<link rel="stylesheet" type="text/css" href="../static/styles/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="../static/styles/style.css">
 
     <!--Get time-->
 	<script>
@@ -26,7 +29,9 @@ Author: king
 		gtag('js', new Date());
 		gtag('config', 'UA-119386393-1');
 	</script>
+
 </head>
+
 <body>
 	<div class="header">
         <!--begin header-left-->
@@ -88,15 +93,35 @@ Author: king
 			<div class="user-info-dropdown">
 				<div class="dropdown">
 					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-						<span class="user-icon">
-                            <!--此处为用户的头像，我们显示默认头像-->
-							<img src="../../vendors/images/photo1.jpg" alt="">
-                        </span>
-                        <!--此处显示用户名-->
-						<span class="user-name">TJ university</span>
+						{% if user %}
+							{% if profile_image_path %}
+							<span class="user-icon">
+								<!--若用户存在，则调用数据库头像-->
+								<img src={{profile_image_path}} alt="">
+							</span>
+							{% else %}
+							<span class="user-icon">
+								<!--若用户未上传图片，我们显示默认头像-->
+
+								<img src="../static/img/default_profile.jpg" alt="">
+							</span>
+							{% endif %}
+							<!--此处显示用户名-->
+							<span class="user-name">{{user_id}}</span>
+						{% else %}
+							<span class="user-icon">
+								<!--若用户不存在，我们显示默认头像-->
+
+								<img src="../static/img/default_profile.jpg" alt="">
+							</span>
+							<!--此处显示用户名-->
+							<span class="user-name">TJ university</span>
+						{% endif %}
+						
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-						<a class="dropdown-item" href="../login.html"><i class="dw dw-logout"></i> Log Out</a>
+						<a class="dropdown-item" href={{url_for("image.profile_image_upload")}}><i class="dw dw-logout"></i> Edit Profile</a>
+						<a class="dropdown-item" href={{url_for("auth.logout")}}><i class="dw dw-logout"></i> Log Out</a>
 					</div>
 				</div>
 			</div>
@@ -143,18 +168,19 @@ Author: king
         <!--此处为logo显示界面-->
 		<div class="brand-logo">
 			<a href="user.html">
-				<img src="../../vendors/images/tongji-logo.svg" alt="" class="dark-logo">
-				<img src="../../vendors/images/tongji-logo-white.jpg" alt="" class="light-logo">
+				<img src="../static/img/tongji-logo.svg" alt="" class="dark-logo">
+				<img src="../static/img/tongji-logo-white.jpg" alt="" class="light-logo">
 			</a>
 			<div class="close-sidebar" data-toggle="left-sidebar-close">
 				<i class="ion-close-round"></i>
 			</div>
 		</div>
+
 		<div class="menu-block customscroll">
 			<div class="sidebar-menu">
 				<ul id="accordion-menu">
 					<li>
-						<a href="user.html" class="dropdown-toggle no-arrow">
+						<a href={{url_for("space.personal_page")}} class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-calendar1"></span><span class="mtext">Home</span>
 						</a>
 					</li>
@@ -163,7 +189,7 @@ Author: king
 						<a href="calendar.html" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-calendar1"></span><span class="mtext">Calendar</span>
 						</a>
-                    </li>
+					</li>
                     <!--接下来是五大模块的返回链接-->
 					<li class="dropdown">
 						<a href="../Virtue.html" class="dropdown-toggle">
@@ -208,7 +234,7 @@ Author: king
                     </li>
                     <!--返回主界面-->
 					<li>
-						<a href="../index.html" class="dropdown-toggle no-arrow">
+						<a href={{url_for("home")}} class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-calendar1"></span><span class="mtext">Return</span>
 						</a>
 					</li>
@@ -230,7 +256,7 @@ Author: king
 						</div>
 						<nav aria-label="breadcrumb" role="navigation">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+								<li class="breadcrumb-item"><a href={{url_for("home")}}>Home</a></li>
 								<li class="breadcrumb-item active" aria-current="page">Your Score</li>
 							</ol>
 						</nav>
@@ -246,6 +272,9 @@ Author: king
 					</div>
 				</div>
 			</div>
+
+			{% block content %}
+			
 			<div class="row clearfix progress-box">
                 <!--显示各个模块的分数，注意接口的分数以及百分比的计算-->
 				<div class="col-lg-3 col-md-6 col-sm-12 mb-30">
@@ -308,14 +337,15 @@ Author: king
 					</div>
 				</div>
             </div>
-            
+			{% endblock content %}
+			
             <div class="footer-wrap pd-20 mb-20 card-box"><a href="https://www.tongji.edu.cn" target="_blank">
                 Toongji University</a> Computer Science 5 Group</a>
 			</div>
 		</div>
 	</div>
 	<!-- js -->
-	<script src="../../vendors/scripts/core.js"></script>
-	<script src="../../vendors/scripts/layout-settings.js"></script>
+	<script src="../static/scripts/core.js"></script>
+	<script src="../static/scripts/layout-settings.js"></script>
 </body>
 </html>
