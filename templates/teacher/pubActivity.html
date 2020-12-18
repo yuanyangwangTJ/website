@@ -16,7 +16,20 @@ Ps: Jinja2模板网站，以base.html为基础
     <div class="panel panel-success">
         <div class="panel-heading">
             <h3 class="panel-title">上传活动内容与图像</h3>
+        </div><br>
+        <div class="panel-heading">
+            <!--活动选择-->
+            <label for="activity-select">Choose a activity module:</label>
+            <select name="activity" class="activity-select">
+                <option value="virtue" selected>virtue</option>
+                <option value="wisdom">wisdom</option>
+                <option value="body">body</option>
+                <option value="beauty">beauty</option>
+                <option value="labor">labor</option>
+            </select>
+            <br><br><p>Please upload text and image</p>
         </div>
+        
         <div class="panel-body">
             <!--此处接受文本内容，为txt文件-->
             <form action="{{ url_for('image.profile_image_upload') }}" method="POST"
@@ -26,7 +39,6 @@ Ps: Jinja2模板网站，以base.html为基础
                 <p class="message"></p>
             </form>
         </div>
-        <br><br>
         <div class="panel-body">
             <!--此处接受图像文件，限定为图片格式-->
             <form action="{{ url_for('image.profile_image_upload') }}" method="POST"

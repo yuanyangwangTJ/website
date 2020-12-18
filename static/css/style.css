@@ -71,3 +71,12 @@ body {
     left: 1.5%;
     position: relative;
 }
+
+/*活动模块选择*/
+* .activity-select {
+    border-collapse: black;
+    border-radius: 3px;
+    width:210px;
+    height: 40px;
+    font-weight: bold;
+}
