@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- 这是jinja2模板的基础页面 -->
 <html>
 <head>
 {% block head %}
@@ -45,11 +46,11 @@
                 <ul>
                     {% block topnavi %}
                         <li><a href={{url_for('home')}}>Home</a></li>
-                        <li><a href="Virtue.html">Virtue Activity</a></li>
-                        <li><a href="Wisdom.html">Wisdom Activity</a></li>
-                        <li><a href="Body.html">Body Activity</a></li>
-                        <li class="active"><a href="Beauty.html">Beauty Activity</a></li>
-                        <li><a href="Labor.html">Labor Activity</a></li>
+                        <li><a href={{url_for('module.virtue')}}>Virtue Activity</a></li>
+                        <li><a href={{url_for('module.wisdom')}}>Wisdom Activity</a></li>
+                        <li><a href={{url_for('module.body_act')}}>Body Activity</a></li>
+                        <li class="active"><a href={{url_for('module.beauty')}}>Beauty Activity</a></li>
+                        <li><a href={{url_for('module.labor')}}>Labor Activity</a></li>
                         <li class="last"><a href={{url_for('space.personal_page')}}>User Page</a></li>
                     {% endblock topnavi %}
                 </ul>
