@@ -273,65 +273,67 @@ Author: king
 						<div class="panel-heading">
 							<h3 class="panel-title">发布活动</h3>
 						</div><br>
+						<form action="{{ url_for('act.activity') }}" method="POST">
+							<!-- 设置提交的内容 -->
+							<div class="public-activity">
+								<!-- 活动选择-->
+								<!-- 从五大模块中选择一个，五选一，默认为virtue -->
+								<label for="activity-select">Choose a activity module:</label>
 
-						<!-- 设置提交的内容 -->
-						<div class="public-activity">
-							<!-- 活动选择-->
-							<!-- 从五大模块中选择一个，五选一，默认为virtue -->
-							<label for="activity-select">Choose a activity module:</label>
-							<select name="activity" class="activity-select">
-								<option value="virtue" selected>virtue</option>
-								<option value="wisdom">wisdom</option>
-								<option value="body">body</option>
-								<option value="beauty">beauty</option>
-								<option value="labor">labor</option>
-							</select>
-							<br><br>
+								<select name="activity" class="activity-select" name="lable">
+									<option value="virtue" selected>virtue</option>
+									<option value="wisdom">wisdom</option>
+									<option value="body">body</option>
+									<option value="beauty">beauty</option>
+									<option value="labor">labor</option>
+								</select>
+								<br><br>
 
-							<!-- 活动的标题上传 -->
-							<label for="activity-select">Activity Tittle</label>
-							<div class="form-group">
-								<input type="text" class="form-control" id="name" style="width: 400px;"
-								placeholder="Please input activity tittle">
-							</div>
-
-							<!-- 活动的领队教师设置 -->
-							<label for="activity-select">Activity Teacher</label>
-							<div class="form-group">
-								<input type="text" class="form-control" id="name" style="width: 250px;"
-								placeholder="Please input activity teacher">
-							</div>
-
-							<!-- 活动的分数设置 -->
-							<!-- 此处已经由前端代码判断输入是否为数字，后端只需要考虑分数的高低限制（或者不设）-->
-							<label for="activity-select">Activity Score</label>
-							<div class="form-group">
-								<input type="text" onkeyup="this.value=this.value.replace(/\D/g,'')"
-								class="form-control" id="name" style="width: 250px;"
-								placeholder="Please input activity score">
-							</div>
-
-							<!-- 活动的介绍 -->
-							<!-- 描述活动的具体内容 -->
-							<label for="activity-select">Activity Describe</label>
-							<form role="form" style="width: 600px;">
+								<!-- 活动的标题上传 -->
+								<label for="activity-select">Activity Tittle</label>
 								<div class="form-group">
-								<textarea class="form-control" rows="3"></textarea>
+									<input type="text" class="form-control" id="name" style="width: 400px;"
+										placeholder="Please input activity tittle">
 								</div>
-							</form>
-  
-							<!-- 活动封面图 -->
-							<!-- 此处上传活动的封面图，可以在前端显示-->
-							<div class="panel-body">
-								<!--此处接受图像文件，限定为图片格式-->
-								<form action="{{ url_for('image.profile_image_upload') }}" method="POST"
-									enctype="multipart/form-data">
-									<input type="file" name="image" id="image" accept="image/*"><br>
-									<button type="button" class="btn btn-secondary">upload</button>
-									<p class="message"></p>
+
+								<!-- 活动的领队教师设置 -->
+								<label for="activity-select">Activity Teacher</label>
+								<div class="form-group">
+									<input type="text" class="form-control" id="name" style="width: 250px;"
+										placeholder="Please input activity teacher">
+								</div>
+
+								<!-- 活动的分数设置 -->
+								<!-- 此处已经由前端代码判断输入是否为数字，后端只需要考虑分数的高低限制（或者不设）-->
+								<label for="activity-select">Activity Score</label>
+								<div class="form-group">
+									<input type="text" onkeyup="this.value=this.value.replace(/\D/g,'')"
+										class="form-control" id="name" style="width: 250px;"
+										placeholder="Please input activity score">
+								</div>
+
+								<!-- 活动的介绍 -->
+								<!-- 描述活动的具体内容 -->
+								<label for="activity-select">Activity Describe</label>
+								<form role="form" style="width: 600px;">
+									<div class="form-group">
+										<textarea class="form-control" rows="3"></textarea>
+									</div>
 								</form>
+
+								<!-- 活动封面图 -->
+								<!-- 此处上传活动的封面图，可以在前端显示-->
+								<div class="panel-body">
+									<!--此处接受图像文件，限定为图片格式-->
+									<form action="{{ url_for('image.profile_image_upload') }}" method="POST"
+										enctype="multipart/form-data">
+										<input type="file" name="image" id="image" accept="image/*"><br>
+										<button type="button" class="btn btn-secondary">upload</button>
+										<p class="message"></p>
+									</form>
+								</div>
 							</div>
-						</div>
+						</form>
 					</div>
 				</div>
 
