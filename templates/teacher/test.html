@@ -287,16 +287,18 @@ Author: king
 							<br><br><p>Please upload text and image</p>
 						</div>
 						
-
-						<div class="panel-body">
-							<!--此处接受文本内容，为txt文件-->
-							<form action="{{ url_for('image.profile_image_upload') }}" method="POST"
-								enctype="multipart/form-data">
-								<input type="file" name="image" id="image" accept="text/plain"><br>
-								<button type="button" class="btn btn-secondary">upload</button>
-								<p class="message"></p>
-							</form>
+						<div class="input-group">
+							<div class="input-group-prepend">
+							  <span class="input-group-text">With textarea</span>
+							</div>
+							<textarea class="form-control" aria-label="With textarea"></textarea>
 						</div>
+
+						
+
+
+
+
 						<div class="panel-body">
 							<!--此处接受图像文件，限定为图片格式-->
 							<form action="{{ url_for('image.profile_image_upload') }}" method="POST"
