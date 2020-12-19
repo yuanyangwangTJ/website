@@ -10,30 +10,16 @@ Virtue
 {% block content %}
 <div id="portfolio">
     <ul>
-        <li><img src="../static/img/demo/420x190.gif" alt="" />
-            <h2>Metridiculis conseque quis</h2>
-            <p>Orciinterdum condimenterdum nullamcorper elit nam curabitur laoreet met praesenean et
-                iaculum. Metridiculis conseque quis iaculum aenean nunc aenean quis nam nis dui.</p>
-            <p class="readmore"><a href="#">Read More Here &raquo;</a></p>
+        {% for activity in item %}
+        <li class="{{ loop.index0 | set_last_class_filter }}"><img src="{{activity.cover_image_path}}" alt="" />
+            <h2>{{activity.name}}</h2>
+            <p>{{activity.description}}</p>
+            <p class="readmore"><a href="{{'../' ~ activity.id}}">Read More Here &raquo;</a></p>
         </li>
-        <li class="last"><img src="../static/img/demo/420x190.gif" alt="" />
-            <h2>Metridiculis conseque quis</h2>
-            <p>Orciinterdum condimenterdum nullamcorper elit nam curabitur laoreet met praesenean et
-                iaculum. Metridiculis conseque quis iaculum aenean nunc aenean quis nam nis dui.</p>
-            <p class="readmore"><a href="#">Read More Here &raquo;</a></p>
-        </li>
-        <li><img src="../static/img/demo/420x190.gif" alt="" />
-            <h2>Metridiculis conseque quis</h2>
-            <p>Orciinterdum condimenterdum nullamcorper elit nam curabitur laoreet met praesenean et
-                iaculum. Metridiculis conseque quis iaculum aenean nunc aenean quis nam nis dui.</p>
-            <p class="readmore"><a href="#">Read More Here &raquo;</a></p>
-        </li>
-        <li class="last"><img src="../static/img/demo/420x190.gif" alt="" />
-            <h2>Metridiculis conseque quis</h2>
-            <p>Orciinterdum condimenterdum nullamcorper elit nam curabitur laoreet met praesenean et
-                iaculum. Metridiculis conseque quis iaculum aenean nunc aenean quis nam nis dui.</p>
-            <p class="readmore"><a href="#">Read More Here &raquo;</a></p>
-        </li>
+        {% else %}
+<!--        如果没有该类活动，显示此处内容-->
+        <h2>No Activity.</h2>
+        {% endfor %}
     </ul>
 </div>
 {% endblock content %}
