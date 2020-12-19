@@ -1,6 +1,6 @@
 from flask import Blueprint, flash, g, redirect, render_template, request, session, url_for
 
-from app.database import db, User, Activity, Apply
+from app.database import db, User, Activity
 
 bp = Blueprint('act', __name__)
 
