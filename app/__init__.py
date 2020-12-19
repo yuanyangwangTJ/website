@@ -3,7 +3,7 @@ import os
 from flask import Flask, Blueprint, flash, g, redirect, render_template, request, session, url_for
 
 from . import auth, image, config, activity, space, module
-from app.database import db, Activity, User
+from app.database import db, User, Activity
 
 
 TEMPLATE_FOLDER = '../templates'
