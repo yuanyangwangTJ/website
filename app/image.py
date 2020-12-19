@@ -4,7 +4,7 @@ import datetime
 import random
 
 from werkzeug.utils import secure_filename
-from flask import Flask, Blueprint, render_template, request, url_for, make_response, send_from_directory, abort, session, flash, g
+from flask import Flask, Blueprint, render_template, redirect,request, url_for, make_response, send_from_directory, abort, session, flash, g
 import base64
 
 from app.auth import login_required
@@ -62,11 +62,11 @@ def profile_image_upload():
             db.session.commit()
             # complete feedback
             flash('Upload succeeded!')
-            # TO-DO redact the url to prevent from 404 
-            return render_template(url_for("space.personal_page"))
+            # TO-DO redact the url to prevent from 404
+            return redirect(url_for('space.personal_page'))
         else:
             flash('The image format is not supported. Please try again.')
-            render_template('pages/profile.html')
+            render_template('./pages/user.html')
 
 
 

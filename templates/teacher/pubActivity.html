@@ -7,11 +7,8 @@ Ps: Jinja2模板网站，以base.html为基础
 
 {% extends 'base.html' %}
 
-{% block title %}Activity{% endblock title %}
-{% block active-item %}Public Activity{% endblock active-item %}
-
 <!--主体内容部分的替换-->
-{% block main-content %}
+{% block content %}
 <div class="file-submit">
     <div class="panel panel-success">
         <div class="panel-heading">
@@ -62,4 +59,4 @@ Ps: Jinja2模板网站，以base.html为基础
 <div class="footer-wrap pd-20 mb-20 card-box"><a href="https://www.tongji.edu.cn" target="_blank">
         Toongji University</a> Computer Science fifth Group</a>
 </div>
-{% endblock main-content %}
+{% endblock content %}

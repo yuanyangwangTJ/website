@@ -1,0 +1,22 @@
+{% extends 'teacher/base.html' %}
+
+{% block page_item %}
+    My Profile
+{% endblock page_item %}
+
+{% block active_item %}
+    Profile
+{% endblock active_item %}
+
+{% block menu_item %}
+    <!--此处为选项-->
+    <div class="col-md-6 col-sm-12 text-right">
+        <div class="dropdown">
+            <form action="{{ url_for('image.profile_image_upload') }}" method="POST" enctype="multipart/form-data">
+                <input type="file" name="image" id="image" accept="image/*">
+                <button class="btn btn-primary">upload</button>
+                <p class="message"></p>
+            </form>
+        </div>
+    </div>
+{% endblock menu_item %}
