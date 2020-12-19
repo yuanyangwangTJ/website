@@ -11,8 +11,16 @@
         <!-- ####################################################################################################### -->
         <h1>{{activity.name}}</h1>
         <p>{{activity.description}}</p>
-        <img class="imgr" src="{{activity.cover_image_path}}" alt="" width="125" height="125" />
-        </ol>
+        {% if operation == 'Apply' %}
+        <a href="{{'../apply/' ~ act.id}}">Apply</a>
+        {% elif operation == 'Abort' %}
+        <a href="{{'../abort/' ~ act.id}}">Abort</a>
+        {% elif operation == 'Delete' %}
+        <a href="{{'../delete/' ~ act.id}}">Delete</a>
+        {% else %}
+<!--        do nothing-->
+        {% endif %}
+        <img class="imgr" src="{{activity.cover_image_path ~ activity.cover_image_name}}" alt="" width="125" height="125" />
         <!-- ####################################################################################################### -->
       </div>
     </div>

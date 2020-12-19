@@ -33,12 +33,12 @@ class Activity(db.Model):
     label = db.Column(db.Enum('virtue', 'wisdom', 'body',
                               'beauty', 'labor'), nullable=False)
 
-    start_time = db.Column(db.DateTime, nullable=False)
-    end_time = db.Column(db.DateTime, nullable=False)
+    # start_time = db.Column(db.DateTime, nullable=False)
+    # end_time = db.Column(db.DateTime, nullable=False)
     lead_teacher = db.Column(db.String(255), nullable=False)
-    cover_path = db.Column(db.Text)
-    max_join = db.Column(db.Integer, default=999)
-    current_join = db.Column(db.Integer, default=0)
+    # cover_path = db.Column(db.Text)
+    # max_join = db.Column(db.Integer, default=999)
+    # current_join = db.Column(db.Integer, default=0)
     score = db.Column(db.Integer, default=1)
     participants = db.relationship('User', secondary=tags,
         backref=db.backref('activities', lazy='dynamic'))
