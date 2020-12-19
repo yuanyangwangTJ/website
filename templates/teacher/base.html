@@ -8,7 +8,6 @@ Author: king
 <html>
 
 <head>
-{% block head %}
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
 	<title>Administrator</title>
@@ -34,13 +33,11 @@ Author: king
 		gtag('js', new Date());
 		gtag('config', 'UA-119386393-1');
 	</script>
-{% endblock head %}
 </head>
 
 <body>
 	<!--导航栏的头部，非特殊情况不考虑模板替换-->
 	<div class="header">
-	{% block header %}
 		<!--begin header-left-->
 		<div class="header-left">
 			<div class="menu-icon dw dw-menu"></div>
@@ -101,27 +98,32 @@ Author: king
 				<div class="dropdown">
 					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
 						<span class="user-icon">
+							{% if profile_image_path == None %}
+								<img src="../../static/img/photo1.jpg" alt="">
+							{% else %}
+								<img src="data:;base64,{{ profile_image }}" alt="">
+							{% endif %}
+
 							<!--此处为用户的头像，我们显示默认头像-->
-							<img src="../../static/img/photo1.jpg" alt="">
+							
 						</span>
 						<!--此处显示用户名-->
-						<span class="user-name">Administrator</span>
+						<span class="user-name">{{user_id}}</span>
 					</a>
 					<!--此处的退出登录按钮后端需要考虑一下设置-->
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-						<a class="dropdown-item" href="../login.html"><i class="dw dw-logout"></i> Log Out</a>
+						<a class="dropdown-item" href={{url_for('space.profile')}}><i class="dw dw-logout"></i> Profile</a>
+						<a class="dropdown-item" href={{url_for('auth.logout')}}><i class="dw dw-logout"></i> Log Out</a>
 					</div>
 				</div>
 			</div>
 		</div>
 		<!--end header-right-->
-	{% endblock header %}
 	</div>
 
 	<!--为个人界面的主题设置，后端不需要考虑更改-->
 	<!--begin right-sidebar-->
 	<div class="right-sidebar">
-		{% block right-sidebar %}
 		<div class="sidebar-title">
 			<h3 class="weight-600 font-16 text-blue">
 				Layout Settings
@@ -150,13 +152,11 @@ Author: king
 				</div>
 			</div>
 		</div>
-		{% endblock right-sidebar %}
 	</div>
 	<!--end right-sidebar-->
 
 	<!--begin left-side-bar-->
 	<div class="left-side-bar">
-		{% block left-side-bar %}
 		<!--此处为logo显示界面-->
 		<div class="brand-logo">
 			<a href="user.html">
@@ -172,7 +172,7 @@ Author: king
 				<ul id="accordion-menu">
 					<!--home 界面可以显示学生申请活动的情况，教师可以进行活动审批-->
 					<li>
-						<a href="user.html" class="dropdown-toggle no-arrow">
+						<a href={{ url_for("space.personal_page")}} class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-calendar1"></span><span class="mtext">Home</span>
 						</a>
 					</li>
@@ -187,27 +187,27 @@ Author: king
 					<!--下面为教师审批功能，对学生提交的活动进行审批-->
 					<!--教师可以观看各个板块活动的提交情况-->
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle">
+						<a href={{url_for('module.virtue')}} class="dropdown-toggle">
 							<span class="micon dw dw-paint-brush"></span><span class="mtext">Virtue Moudle</span>
 						</a>
 					</li>
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle">
+						<a href={{url_for('module.wisdom')}} class="dropdown-toggle">
 							<span class="micon dw dw-paint-brush"></span><span class="mtext">Wisdom Moudle</span>
 						</a>
 					</li>
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle">
+						<a href={{url_for('module.body_act')}} class="dropdown-toggle">
 							<span class="micon dw dw-paint-brush"></span><span class="mtext">Body Moudle</span>
 						</a>
 					</li>
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle">
+						<a href={{url_for('module.beauty')}} class="dropdown-toggle">
 							<span class="micon dw dw-paint-brush"></span><span class="mtext">Beauty Moudle</span>
 						</a>
 					</li>
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle">
+						<a href={{url_for('module.labor')}} class="dropdown-toggle">
 							<span class="micon dw dw-paint-brush"></span><span class="mtext">Labor Moudle</span>
 						</a>
 					</li>
@@ -223,14 +223,13 @@ Author: king
 					</li>
 					<!--返回Home界面-->
 					<li>
-						<a href="home.html" class="dropdown-toggle no-arrow">
+						<a href={{url_for('home')}} class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-calendar1"></span><span class="mtext">Return</span>
 						</a>
 					</li>
 				</ul>
 			</div>
 		</div>
-		{% endblock left-side-bar %}
 	</div>
 
 	<!--主题内容，可以显示标题栏的具体活动内容-->
@@ -238,22 +237,21 @@ Author: king
 	<!--此处为页面核心部分，需要修改替换-->
 	<div class="mobile-menu-overlay"></div>
 	<div class="teacher_main-container">
-		{% block main-container %}
 		<div class="xs-pd-20-10 pd-ltr-20">
 			<div class="page-header">
 				<div class="row">
 					<div class="col-md-6 col-sm-12">
 						<div class="title">
-							<h4>Moral Education</h4>
+							<h4>{% block page_item %} Moral Education {% endblock page_item %}</h4>
 						</div>
 						<nav aria-label="breadcrumb" role="navigation">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-								<li class="breadcrumb-item active" aria-current="page">{% block active-item %}Activity{% endblock active-item %}</li>
+								<li class="breadcrumb-item"><a href={{url_for('home')}}>Home</a></li>
+								<li class="breadcrumb-item active" aria-current="page">{% block active_item %}Activity{% endblock active_item %}</li>
 							</ol>
 						</nav>
 					</div>
-
+					{% block menu_item %}
 					<!--在此处显示时间-->
 					<div class="col-md-6 col-sm-12 text-right">
 						<div class="dropdown">
@@ -262,20 +260,18 @@ Author: king
 							</a>
 						</div>
 					</div>
+					{% endblock menu_item %}
 				</div>
 			</div>
 
 			<div class="row clearfix progress-box">
 				<!--注意此处main-content 与 main-container的区别-->
-				{% block main-content %}
 				<!-----------------------------------------
 				这之间为活动的主体内容设置
 				------------------------------------------->
 				<p>主体内容</p>
-				{% endblock main-content %}
 			</div>
 		</div>
-		{% endblock main-container %}
 	</div>
 		<!-- js -->
 		<script src="../../static/js/core.js"></script>

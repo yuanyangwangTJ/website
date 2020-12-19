@@ -1,0 +1,39 @@
+{% extends 'pages/user.html' %}
+
+<!-- 这是一个用 jinja2 从Base.html渲染得到的实例 需要启动 flask 环境后才能看到-->
+<!-- 这样可以避免一项修改多处寻找 -->
+
+{% block title %}
+Profile
+{% endblock title %}
+
+{% block content %}
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="title">
+                <h4>Upload Profile Image</h4>
+            </div>
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Profile</li>
+                </ol>
+            </nav>
+        </div>
+
+        <!--此处为选项-->
+        <div class="col-md-6 col-sm-12 text-right">
+            <div class="dropdown">
+                <form action="{{ url_for('image.profile_image_upload') }}" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="image" id="image" accept="image/*">
+                    <button class="btn btn-primary">upload</button>
+                    <p class="message"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
