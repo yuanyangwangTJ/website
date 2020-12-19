@@ -135,7 +135,7 @@ Author: king
 					<div class="card-box pd-30 height-100-p">
 						<div class="progress-box text-center">
 							<h5 class="text-blue padding-top-10 h5">Virtue Score</h5>
-							<span class="d-block">80% Average <i class="fa fa-line-chart text-blue"></i></span>
+							<span class="d-block">{{scores['virtue']}} <i class="fa fa-line-chart text-blue"></i></span>
 						</div>
 					</div>
 				</div>
@@ -143,7 +143,7 @@ Author: king
 					<div class="card-box pd-30 height-100-p">
 						<div class="progress-box text-center">
 							<h5 class="text-light-green padding-top-10 h5">Wisdom Score</h5>
-							<span class="d-block">75% Average <i class="fa text-light-green fa-line-chart"></i></span>
+							<span class="d-block">{{scores['wisdom']}} <i class="fa text-light-green fa-line-chart"></i></span>
 						</div>
 					</div>
 				</div>
@@ -151,7 +151,7 @@ Author: king
 					<div class="card-box pd-30 height-100-p">
 						<div class="progress-box text-center">
 							<h5 class="text-light-orange padding-top-10 h5">Body Score</h5>
-							<span class="d-block">90% Average <i class="fa text-light-orange fa-line-chart"></i></span>
+							<span class="d-block">{{scores['body']}} <i class="fa text-light-orange fa-line-chart"></i></span>
 						</div>
 					</div>
 				</div>
@@ -159,7 +159,7 @@ Author: king
 					<div class="card-box pd-30 height-100-p">
 						<div class="progress-box text-center">
 							<h5 class="text-light-purple padding-top-10 h5">Beauty Score</h5>
-							<span class="d-block">65% Average <i class="fa text-light-purple fa-line-chart"></i></span>
+							<span class="d-block">{{scores['beauty']}} <i class="fa text-light-purple fa-line-chart"></i></span>
 						</div>
 					</div>
 				</div>
@@ -168,7 +168,7 @@ Author: king
 					<div class="card-box pd-30 height-100-p">
 						<div class="progress-box text-center">
 							<h5 class="text-blue padding-top-10 h5">Labor Score</h5>
-							<span class="d-block">80% Average <i class="fa fa-line-chart text-blue"></i></span>
+							<span class="d-block">{{scores['labor']}} <i class="fa fa-line-chart text-blue"></i></span>
 						</div>
 					</div>
 				</div>
@@ -177,7 +177,7 @@ Author: king
 					<div class="card-box pd-30 height-100-p">
 						<div class="progress-box text-center">
 							<h5 class="text-light-purple padding-top-10 h5">Total Score</h5>
-							<span class="d-block">65% Average <i class="fa text-light-purple fa-line-chart"></i></span>
+							<span class="d-block">{{total_score}} <i class="fa text-light-purple fa-line-chart"></i></span>
 						</div>
 					</div>
 				</div>
@@ -186,7 +186,7 @@ Author: king
 					<div class="card-box pd-30 height-100-p">
 						<div class="progress-box text-center">
 							<h5 class="text-light-orange padding-top-10 h5">Rest Score</h5>
-							<span class="d-block">35% Average <i class="fa text-light-orange fa-line-chart"></i></span>
+							<span class="d-block">{{100 - total_score if total_score <= 100 else 0}} <i class="fa text-light-orange fa-line-chart"></i></span>
 						</div>
 					</div>
 				</div>
