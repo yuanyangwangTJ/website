@@ -57,10 +57,11 @@ body {
 .canlenda2 {
     width: 250px;
     height: auto;
+    top: 20%;
     right: 5px;
     float: right;
     margin: 3px auto;
-    position: relative;
+    
 }
 
 /*文本提交框*/
@@ -73,10 +74,15 @@ body {
 }
 
 /*活动模块选择*/
-* .activity-select {
+.activity-select {
     border-collapse: black;
     border-radius: 3px;
     width:210px;
     height: 40px;
     font-weight: bold;
+}
+
+/*活动发布排版*/
+.public-activity {
+    margin: 10px 25px 20px;  
 }

@@ -265,16 +265,21 @@ Author: king
 			</div>
 
 			<div class="row clearfix progress-box">
+				{% block main-content %}
 				<!--注意此处main-content 与 main-container的区别-->
 				<!-----------------------------------------
 				这之间为活动的主体内容设置
 				------------------------------------------->
 				<p>主体内容</p>
+				{% endblock main-content %}
 			</div>
 		</div>
+		<div class="footer-wrap pd-20 mb-20 card-box"><a href="https://www.tongji.edu.cn" target="_blank">
+			Toongji University</a> Computer Science fifth Group</a>
+		</div>
 	</div>
-		<!-- js -->
-		<script src="../../static/js/core.js"></script>
-		<script src="../../static/js/layout-settings.js"></script>
+	<!-- js -->
+	<script src="../../static/js/core.js"></script>
+	<script src="../../static/js/layout-settings.js"></script>
 </body>
 </html>

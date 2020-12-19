@@ -18,13 +18,12 @@ Author: king
 
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="../../static/css/style.css">
-	
+
 	<link rel="stylesheet" type="text/css" href="../../static/styles/core.css">
 	<link rel="stylesheet" type="text/css" href="../../static/styles/icon-font.min.css">
 	<link rel="stylesheet" type="text/css" href="../../static/styles/style.css">
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-	
 
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<!--Get time-->
@@ -40,7 +39,7 @@ Author: king
 <body>
 	<!--导航栏的头部，非特殊情况不考虑模板替换-->
 	<div class="header">
-	
+
 		<!--begin header-left-->
 		<div class="header-left">
 			<div class="menu-icon dw dw-menu"></div>
@@ -115,13 +114,13 @@ Author: king
 			</div>
 		</div>
 		<!--end header-right-->
-	
+
 	</div>
 
 	<!--为个人界面的主题设置，后端不需要考虑更改-->
 	<!--begin right-sidebar-->
 	<div class="right-sidebar">
-		
+
 		<div class="sidebar-title">
 			<h3 class="weight-600 font-16 text-blue">
 				Layout Settings
@@ -150,13 +149,13 @@ Author: king
 				</div>
 			</div>
 		</div>
-		
+
 	</div>
 	<!--end right-sidebar-->
 
 	<!--begin left-side-bar-->
 	<div class="left-side-bar">
-		
+
 		<!--此处为logo显示界面-->
 		<div class="brand-logo">
 			<a href="user.html">
@@ -230,7 +229,7 @@ Author: king
 				</ul>
 			</div>
 		</div>
-		
+
 	</div>
 
 	<!--主题内容，可以显示标题栏的具体活动内容-->
@@ -238,7 +237,7 @@ Author: king
 	<!--此处为页面核心部分，需要修改替换-->
 	<div class="mobile-menu-overlay"></div>
 	<div class="teacher_main-container">
-		
+
 		<div class="xs-pd-20-10 pd-ltr-20">
 			<div class="page-header">
 				<div class="row">
@@ -249,7 +248,8 @@ Author: king
 						<nav aria-label="breadcrumb" role="navigation">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-								<li class="breadcrumb-item active" aria-current="page">{% block active-item %}Activity{% endblock active-item %}</li>
+								<li class="breadcrumb-item active" aria-current="page">{% block active-item %}Activity{%
+									endblock active-item %}</li>
 							</ol>
 						</nav>
 					</div>
@@ -267,62 +267,75 @@ Author: king
 
 			<div class="row clearfix progress-box">
 				<!--注意此处main-content 与 main-container的区别-->
-				
+				<!-- 下面为教师管理员发布活动的具体提交框，包括模块，标题，带队教师，分数，介绍，活动封面-->
 				<div class="file-submit">
 					<div class="panel panel-success">
 						<div class="panel-heading">
-							<h3 class="panel-title">上传活动内容与图像</h3>
+							<h3 class="panel-title">发布活动</h3>
 						</div><br>
-						<div class="panel-heading">
-							<!--活动选择-->
+
+						<!-- 设置提交的内容 -->
+						<div class="public-activity">
+							<!-- 活动选择-->
+							<!-- 从五大模块中选择一个，五选一，默认为virtue -->
 							<label for="activity-select">Choose a activity module:</label>
 							<select name="activity" class="activity-select">
-							    <option value="virtue" selected>virtue</option>
-							    <option value="wisdom">wisdom</option>
-							    <option value="body">body</option>
-							    <option value="beauty">beauty</option>
-							    <option value="labor">labor</option>
+								<option value="virtue" selected>virtue</option>
+								<option value="wisdom">wisdom</option>
+								<option value="body">body</option>
+								<option value="beauty">beauty</option>
+								<option value="labor">labor</option>
 							</select>
-							<br><br><p>Please upload text and image</p>
-						</div>
-						
-						<form class="form-inline" role="form">
-							<div class="form-group">
-							<label class="sr-only" for="name">名称</label>
-							<input type="text" class="form-control" id="name" placeholder="请输入名称">
-							</div>
-							<div class="form-group">
-							<label class="sr-only" for="inputfile">文件输入</label>
-							<input type="file" id="inputfile">
-							</div>
-							<div class="checkbox">
-							<label>
-								<input type="checkbox">请打勾
-							</label>
-							</div>
-							<button type="submit" class="btn btn-default">提交</button>
-						</form>
-						
-						<div class="input-group">
-							<div class="input-group-prepend">
-							  <span class="input-group-text">With textarea</span>
-							</div>
-							<textarea class="form-control" aria-label="With textarea"></textarea>
-						</div>
+							<br><br>
 
+							<!-- 活动的标题上传 -->
+							<label for="activity-select">Activity Tittle</label>
+							<div class="form-group">
+								<input type="text" class="form-control" id="name" style="width: 400px;"
+								placeholder="Please input activity tittle">
+							</div>
 
-						<div class="panel-body">
-							<!--此处接受图像文件，限定为图片格式-->
-							<form action="{{ url_for('image.profile_image_upload') }}" method="POST"
-								enctype="multipart/form-data">
-								<input type="file" name="image" id="image" accept="image/*"><br>
-								<button type="button" class="btn btn-secondary">upload</button>
-								<p class="message"></p>
+							<!-- 活动的领队教师设置 -->
+							<label for="activity-select">Activity Teacher</label>
+							<div class="form-group">
+								<input type="text" class="form-control" id="name" style="width: 250px;"
+								placeholder="Please input activity teacher">
+							</div>
+
+							<!-- 活动的分数设置 -->
+							<!-- 此处已经由前端代码判断输入是否为数字，后端只需要考虑分数的高低限制（或者不设）-->
+							<label for="activity-select">Activity Score</label>
+							<div class="form-group">
+								<input type="text" onkeyup="this.value=this.value.replace(/\D/g,'')"
+								class="form-control" id="name" style="width: 250px;"
+								placeholder="Please input activity score">
+							</div>
+
+							<!-- 活动的介绍 -->
+							<!-- 描述活动的具体内容 -->
+							<label for="activity-select">Activity Describe</label>
+							<form role="form" style="width: 600px;">
+								<div class="form-group">
+								<textarea class="form-control" rows="3"></textarea>
+								</div>
 							</form>
+  
+							<!-- 活动封面图 -->
+							<!-- 此处上传活动的封面图，可以在前端显示-->
+							<div class="panel-body">
+								<!--此处接受图像文件，限定为图片格式-->
+								<form action="{{ url_for('image.profile_image_upload') }}" method="POST"
+									enctype="multipart/form-data">
+									<input type="file" name="image" id="image" accept="image/*"><br>
+									<button type="button" class="btn btn-secondary">upload</button>
+									<p class="message"></p>
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>
 
+				<!-- 日历小挂件-->
 				<div class="canlenda2">
 					<div class="col-md-4 col-sm-12 text-center">
 						<div class="mb-20">
@@ -330,18 +343,19 @@ Author: king
 						</div>
 					</div>
 				</div>
-				
-				<div class="footer-wrap pd-20 mb-20 card-box"><a href="https://www.tongji.edu.cn" target="_blank">
-						Toongji University</a> Computer Science fifth Group</a>
-				</div>
-				
 			</div>
+
+			<div class="footer-wrap pd-20 mb-20 card-box"><a href="https://www.tongji.edu.cn" target="_blank">
+					Toongji University</a> Computer Science fifth Group</a>
+			</div>
+
 		</div>
-		
 	</div>
-		<!-- js -->
-		<script src="../../static/js/core.js"></script>
-		<script src="../../static/js/layout-settings.js"></script>
+
+	</div>
+	<!-- js -->
+	<script src="../../static/js/core.js"></script>
+	<script src="../../static/js/layout-settings.js"></script>
 </body>
 
 </html>
