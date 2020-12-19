@@ -9,32 +9,9 @@
     <div class="rnd">
       <div id="container" class="clear">
         <!-- ####################################################################################################### -->
-        <h1>这里是活动标题，从后端抓取</h1>
-        <p>这里是活动正文内容，从后端抓取,然后是图片界面，也从后端抓取，下面的模板内容我没有删除，报名按钮可以直接以链接形式给出</p>
-        <img class="imgr" src="../static/img/demo/imgr.gif" alt="" width="125" height="125" />
-
-        <p>This is a W3C compliant free website template from <a href="http://www.freemoban.com/"
-            title="免费模板网">网站模板</a>. This template is distributed using a <a href="#">Website Template Licence</a>.</p>
-        <p>You can use and modify the template for both personal and commercial use. You must keep all copyright
-          information and credit links in the template and associated files. For more CSS templates visit <a
-            href="#">Free Website Templates</a>.</p>
-        <ul>
-          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-          <li>Etiam vel sapien et est adipiscing commodo.</li>
-          <li>Duis pharetra eleifend sapien, id faucibus dolor rutrum et.</li>
-          <li>Donec et dui dolor, in lacinia leo.</li>
-          <li>Mauris posuere tellus ac purus adipiscing dapibus.</li>
-        </ul>
-        <p>Vestibulumaccumsan egestibulum eu justo convallis augue estas aenean elit intesque sed. Facilispede estibulum
-          nulla orna nisl velit elit ac aliquat non tincidunt. Namjusto cras urna urnaretra lor urna neque sed quis orci
-          nulla. Laoremut vitae doloreet condimentumst phasellentes dolor ut a ipsum id consectetus. Inpede cumst vitae
-          ris tellentesque fring intesquet nibh fames nulla curabitudin.</p>
-        <ol>
-          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-          <li>Etiam vel sapien et est adipiscing commodo.</li>
-          <li>Duis pharetra eleifend sapien, id faucibus dolor rutrum et.</li>
-          <li>Donec et dui dolor, in lacinia leo.</li>
-          <li>Mauris posuere tellus ac purus adipiscing dapibus.</li>
+        <h1>{{activity.name}}</h1>
+        <p>{{activity.description}}</p>
+        <img class="imgr" src="{{activity.cover_image_path}}" alt="" width="125" height="125" />
         </ol>
         <!-- ####################################################################################################### -->
       </div>
