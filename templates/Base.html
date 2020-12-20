@@ -21,10 +21,13 @@
             <div class="fl_right">
                 <ul>
                     <li><a href={{url_for('home')}}>Home</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">A - Z Index</a></li>
-                    <li><a href={{url_for('auth.login')}}>Login</a></li>
-                    <li class="last"><a href="#">Staff Login</a></li>
+                    {% if g.userid %}
+					<li class="last">{{g.userid}}</li>
+					<li class="last"><a href={{url_for('auth.logout')}}>Logout Here</a></li>
+		  
+					{% else %}
+					<li class="last"><a href={{url_for('auth.login')}}>Login Here</a></li>
+					{%endif%}
                 </ul>
                 <!-- TO-DO 完成后端搜索框前端适配 -->
                 <form action="#" method="post" id="sitesearch">
@@ -46,10 +49,10 @@
                 <ul>
                     {% block topnavi %}
                         <li><a href={{url_for('home')}}>Home</a></li>
-                        <li><a href={{url_for('module.virtue')}}>Virtue Activity</a></li>
+                        <li><a href={{url_for('module.virtue')}}>Morality Activity</a></li>
                         <li><a href={{url_for('module.wisdom')}}>Wisdom Activity</a></li>
-                        <li><a href={{url_for('module.body_act')}}>Body Activity</a></li>
-                        <li><a href={{url_for('module.beauty')}}>Beauty Activity</a></li>
+                        <li><a href={{url_for('module.body_act')}}>Sports Activity</a></li>
+                        <li><a href={{url_for('module.beauty')}}>Arts Activity</a></li>
                         <li><a href={{url_for('module.labor')}}>Labor Activity</a></li>
                         <li class="last"><a href={{url_for('space.personal_page')}}>User Page</a></li>
                     {% endblock topnavi %}

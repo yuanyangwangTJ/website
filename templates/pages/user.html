@@ -48,10 +48,12 @@ Author: king
 			<div class="fl_right">
 				<ul>
 					<li><a href={{url_for('home')}}>Home</a></li>
-					<li><a href="#">Contact Us</a></li>
-					<li><a href="#">A - Z Index</a></li>
-					<li><a href={{url_for('auth.login')}}>Student Login</a></li>
-					<li class="last"><a href="#">Staff Login</a></li>
+					{% if g.userid %}
+					<li class="last">{{g.userid}}</li>
+					<li class="last"><a href={{url_for('auth.logout')}}>Logout Here</a></li>
+					{% else %}
+					<li class="last"><a href={{url_for('auth.login')}}>Login Here</a></li>
+					{%endif%}
 				</ul>
 				<form action="#" method="post" id="sitesearch">
 					<fieldset>
@@ -74,12 +76,12 @@ Author: king
 			<div id="topnav">
 				<ul>
 					<li><a href={{url_for('home')}}>Home</a></li>
-					<li><a href={{url_for('module.virtue')}}>Virtue Activity</a></li>
+					<li><a href={{url_for('module.virtue')}}>Morality Activity</a></li>
 					<li><a href={{url_for('module.wisdom')}}>Wisdom Activity</a></li>
-					<li><a href={{url_for('module.body_act')}}>Body Activity</a></li>
-					<li class="active"><a href={{url_for('module.beauty')}}>Beauty Activity</a></li>
+					<li><a href={{url_for('module.body_act')}}>Sports Activity</a></li>
+					<li><a href={{url_for('module.beauty')}}>Arts Activity</a></li>
 					<li><a href={{url_for('module.labor')}}>Labor Activity</a></li>
-					<li class="last"><a href={{url_for('space.personal_page')}}>User Page</a></li>
+					<li class="active"><a href={{url_for('space.personal_page')}}>User Page</a></li>
 					<!--个人建议将首页放在这里，但也有人提议放在其他地方-->
 				</ul>
 			</div>
@@ -199,14 +201,7 @@ Author: king
 
 			<!-- ####################################################################################################### -->
 			<!--此处用来打表，将该名用户报名活动输出出来-->
-			<div class="page-header">
 
-				<div class="row">
-					<div class="col-md-6 col-sm-12">
-						<h4>此处用来打表，将该名用户报名活动输出出来</h4>
-					</div>
-				</div>
-			</div>
 			<!-- ####################################################################################################### -->
 			<div class="wrapper row4">
 				<div class="rnd">

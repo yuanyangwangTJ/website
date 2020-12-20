@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
   <title>Second Classroom</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -23,11 +24,14 @@
       <!--以下几个部分关于右上角，除Home外其他待修改-->
       <div class="fl_right">
         <ul>
-          <li><a href={{url_for("home")}}>Home</a></li>
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">A - Z Index</a></li>
-          <li><a href={{url_for("auth.login")}}>Student Login</a></li>
-          <li class="last"><a href="#">Staff Login</a></li>
+          <li><a href={{url_for('home')}}>Home</a></li>
+					{% if g.userid %}
+					<li class="last">{{g.userid}}</li>
+					<li class="last"><a href={{url_for('auth.logout')}}>Logout Here</a></li>
+		  
+					{% else %}
+					<li class="last"><a href={{url_for('auth.login')}}>Login Here</a></li>
+					{%endif%}
         </ul>
         <form action="#" method="post" id="sitesearch">
           <fieldset>
@@ -49,7 +53,6 @@
       <!-- ###### -->
       <div id="topnav">
         <ul>
-
           <li><a href={{url_for('home')}}>Home</a></li>
           <li><a href={{url_for('module.virtue')}}>Morality Activity</a></li>
           <li><a href={{url_for('module.wisdom')}}>Wisdom Activity</a></li>
@@ -74,55 +77,59 @@
       <div id="featured_content">
         <div class="featured_box" id="fc1"><img src="../static/img/1.jpg" alt="" />
           <div class="floater">
-            <h2>Nullamlacus dui ipsum</h2>
-            <p>Attincidunt vel nam a maurisus lacinia consectetus magnisl sed ac morbi. Inmaurisus habitur pretium eu et
-              ac vest penatibus id lacus parturpis.</p>
-            <p class="readmore"><a href="Virtue.html">Continue Reading &raquo;</a></p>
+            <h2>理想信念与价值观</h2>
+            <p>树立新时代青年人正确的人生观、价值观和世界观，有理想、有信仰。
+              明大德、守公德、立志报效祖国、服务人民、实现人生抱负，努力践行社会主义核心价值观。
+            </p>
+            <p class="readmore"><a href="{{url_for('module.virtue')}}">Continue Reading &raquo;</a></p>
           </div>
         </div>
         <!--此处为‘智’方案介绍-->
         <div class="featured_box" id="fc2"><img src="../static/img/2.jpg" alt="" />
           <div class="floater">
-            <h2>Aliquatjusto quisque nam</h2>
-            <p>Attincidunt vel nam a maurisus lacinia consectetus magnisl sed ac morbi. Inmaurisus habitur pretium eu et
-              ac vest penatibus id lacus parturpis.</p>
-            <p class="readmore"><a href="Wisdom.html">Continue Reading &raquo;</a></p>
+            <h2>文化素养与能力提升</h2>
+            <p>选择性地研读古今中外的经典，养成爱读书、善读书的习惯；
+              培养谋求创新的意识和愿望，锻造实施创新的胆略和气魄；
+              知晓自我的专业兴趣和方向，努力提高学习能力、实践能力。
+            </p>
+            <br>
+            <p class="readmore"><a href="{{url_for('module.wisdom')}}">Continue Reading &raquo;</a></p>
           </div>
         </div>
         <!--此处为‘体’方案介绍-->
         <div class="featured_box" id="fc3"><img src="../static/img/3.jpg" alt="" />
           <div class="floater">
-            <h2>Aliquatjusto quisque nam</h2>
-            <p>Attincidunt vel nam a maurisus lacinia consectetus magnisl sed ac morbi. Inmaurisus habitur pretium eu et
-              ac vest penatibus id lacus parturpis.</p>
-            <p class="readmore"><a href="Body.html">Continue Reading &raquo;</a></p>
+            <h2>强身健体与意志培养</h2>
+            <p>学会合理自我认识，做到悦纳自己、情绪稳定、人际和谐、社会适应良好、培养乐观的心态和健全的人格、焕发青春美丽。树立健康的简直观念，主动参加体育锻炼，强健体魄、锤炼意志。</p>
+            <br>
+            <p class="readmore"><a href="{{url_for('module.body_act')}}">Continue Reading &raquo;</a></p>
           </div>
         </div>
         <!--此处为‘美’方案介绍-->
         <div class="featured_box" id="fc4"><img src="../static/img/4.jpg" alt="" />
           <div class="floater">
-            <h2>Aliquatjusto quisque nam</h2>
-            <p>Attincidunt vel nam a maurisus lacinia consectetus magnisl sed ac morbi. Inmaurisus habitur pretium eu et
-              ac vest penatibus id lacus parturpis.</p>
-            <p class="readmore"><a href="Beauty.html">Continue Reading &raquo;</a></p>
+            <h2>艺术鉴赏与审美实践</h2>
+            <p>树立正确而高尚的审美观，培养感知美、鉴赏美、创造美的审美能力，提升审美素养；以美辅德，以美启智，以美益体，以美助劳，陶冶道德情操，提升精神境界，完善人格塑造。</p>
+            <br>
+            <p class="readmore"><a href="{{url_for('module.beauty')}}">Continue Reading &raquo;</a></p>
           </div>
         </div>
         <!--此处为‘劳’方案介绍-->
         <div class="featured_box" id="fc5"><img src="../static/img/5.jpg" alt="" />
           <div class="floater">
-            <h2>Dapiensociis temper donec</h2>
-            <p>Attincidunt vel nam a maurisus lacinia consectetus magnisl sed ac morbi. Inmaurisus habitur pretium eu et
-              ac vest penatibus id lacus parturpis.</p>
-            <p class="readmore"><a href="Labor.html">Continue Reading &raquo;</a></p>
+            <h2>劳动实践与志愿服务</h2>
+            <p>领悟劳动教育的新内涵，树立正确的劳动观，培养“淡泊名利，甘于奉献”的劳动平哥，进而提高劳动意愿、深化劳动情感、尊重劳动、劳动者和劳动果实，诚信劳动。</p>
+            <br>
+            <p class="readmore"><a href="{{url_for('module.labor')}}">Continue Reading &raquo;</a></p>
           </div>
         </div>
       </div>
       <!--此处为上方图片选择框的文字介绍部分，有文采的可以更改‘All About The...’的描述，但要超过四个单词-->
       <ul id="featured_tabs">
-        <li><a href="#fc1">All About The Virtue Activity</a></li>
+        <li><a href="#fc1">All About The Morality Activity</a></li>
         <li><a href="#fc2">All About The Wisdom Activity</a></li>
-        <li><a href="#fc3">All About The Body Activity</a></li>
-        <li><a href="#fc4">All About The Beauty Activity</a></li>
+        <li><a href="#fc3">All About The Sports Activity</a></li>
+        <li><a href="#fc4">All About The Arts Activity</a></li>
         <li class="last"><a href="#fc5">All About The Labor Activity</a></li>
       </ul>
       <div class="overlay_right"></div>
@@ -138,14 +145,13 @@
         <div id="homepage" class="clear">
           <!-- ###### -->
           <div id="left_column">
-            <h2>Prospective Students</h2>
-            <div class="imgholder"><a href="#"><img src="../static/img/6.jpg" alt="" /></a></div>
+            <h2>Excellent Students</h2>
+            <div class="imgholder"><img src="../static/img/ExcellentStudents.jpg" alt="" width="220" height="90" /></a>
+            </div>
             <h2>Current Students</h2>
-            <div class="imgholder"><a href="#"><img src="../static/img/7.jpg" alt="" /></a></div>
-            <h2>International Students</h2>
-            <div class="imgholder"><a href="#"><img src="../static/img/8.jpg" alt="" /></a></div>
-            <h2>Alumni</h2>
-            <div class="imgholder"><a href="#"><img src="../static/img/9.jpg" alt="" /></a></div>
+            <div class="imgholder"> <img src="../static/img/CurrentStudents.jpg" alt="" width="220" height="90" /></a></div>
+            <h2>Professors</h2>
+            <div class="imgholder"> <img src="../static/img/Professors.jpg" alt="" width="220" height="90"/></a></div>
           </div>
           <!-- ###### -->
           <div id="latestnews">
@@ -160,15 +166,6 @@
                 </div>
               </li>
               {% else %}
-              <li class="clear">
-                <div class="imgl"><img src="../static/img/10.jpg" alt="" /></div>
-                <div class="latestnews">
-                  <p><a href="#">Sentumquisque morbi dui congue.</a></p>
-                  <p>This is a W3C compliant free website template from <a href="http://www.freemoban.com/"
-                      title="免费模板网">网站模板</a>. This template is distributed using a <a href="#">Website Template
-                      Licence</a></p>
-                </div>
-              </li>
               {% endif %}
               {% if item2 %}
               <li class="clear">
@@ -179,14 +176,6 @@
                 </div>
               </li>
               {% else %}
-              <li class="clear">
-                <div class="imgl"><img src="../static/img/11.jpg" alt="" /></div>
-                <div class="latestnews">
-                  <p><a href="#">Sentumquisque morbi dui congue.</a></p>
-                  <p>You can use and modify the template for both personal and commercial use. You must keep all
-                    copyright information and credit links in the template and associated files.</p>
-                </div>
-              </li>
               {% endif %}
               {% if item3 %}
               <li class="clear">
@@ -197,15 +186,6 @@
                 </div>
               </li>
               {% else %}
-              <li class="last clear">
-                <div class="imgl"><img src="../static/img/12.jpg" alt="" /></div>
-                <div class="latestnews">
-                  <p><a href="#">Sentumquisque morbi dui congue.</a></p>
-                  <p> For more CSS templates visit <a href="#">Free Website Templates</a>. Attincidunt vel nam a
-                    maurisus lacinia consectetus magnisl sed ac morbi. Inmaurisus habitur pretium eu et ac vest
-                    penatibus id lacus parturpis.</p>
-                </div>
-              </li>
               {% endif %}
             </ul>
             <!--，祝你开心每一天！(bushi)-->
@@ -214,16 +194,16 @@
           <!-- ###### -->
           <div id="right_column">
             <div class="holder">
-              <h2>Virtual Tour</h2>
-              <a href="#"><img src="../static/img/video.gif" alt="" /></a>
+              <h2>Scenery</h2>
+              <div class="imgholder"> <img src="../static/img/Scenery.jpg" alt="" width="220" height="90"/></a></div>
+              <div class="imgholder"> <img src="../static/img/Scenery02.jpg" alt="" width="220" height="90"/></a></div>
+              <div class="imgholder"> <img src="../static/img/Scenery03.jpg" alt="" width="220" height="90"/></a></div>
             </div>
             <div class="holder">
               <h2>Quick Information</h2>
-              <div class="apply"><a href="#"><img src="../static/img/13.jpg" alt="" /> <strong>Make An
-                    Application</strong></a>
-              </div>
-              <div class="apply"><a href="#"><img src="../static/img/14.jpg" alt="" /> <strong>Order A
-                    Prospectus</strong></a>
+              <div class="apply"><a href={{url_for('auth.login')}}><img src="../static/img/13.jpg" alt="" />
+                  <strong>Make A Quick
+                    Login</strong></a>
               </div>
             </div>
           </div>
