@@ -27,7 +27,7 @@ def regist():
         elif (password != password2):
             return render_template("signup.html", text="两次密码不同，请核对")
         else:
-            user = User(id=userid, usertype='student',password=generate_password_hash(password))
+            user = User(id=userid, usertype='teacher',password=generate_password_hash(password))
             db.session.add(user)
             db.session.commit()
 
