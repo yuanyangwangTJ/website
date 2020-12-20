@@ -26,18 +26,17 @@ Ps: Jinja2模板网站，以base.html为基础
         <!-- 设置提交的内容 -->
         <div class="public-activity">
             <!-- form设置前后端连接的方式 -->
-            <!-- 不是太了解后端，需要协助完成 -->
-        <form>
+        <form action="{{ url_for('act.new')}}" method="POST" enctype="multipart/form-data">
             <!-- 活动选择-->
             <!-- 从五大模块中选择一个，五选一，默认为virtue -->
-            <label for="activity-select">Choose a activity module:</label>
-                <select name="activity" class="activity-select" name="lable">
+             <label for="activity-select" >Choose a activity module:</label>
+                <select class="activity-select" name="label">
                     <option value="virtue" selected>virtue</option>
                     <option value="wisdom">wisdom</option>
                     <option value="body">body</option>
                     <option value="beauty">beauty</option>
                     <option value="labor">labor</option>
-                </select>
+                </select> 
             <br><br>
 
             <!-- 活动的标题上传 -->
@@ -67,21 +66,20 @@ Ps: Jinja2模板网站，以base.html为基础
             <!-- 活动的介绍 -->
             <!-- 描述活动的具体内容 -->
             <label for="activity-select">Activity Describe</label>
-            <form role="form" style="width: 600px;">
-                <div class="form-group">
+            <div class="form-group">
                 <textarea class="form-control" rows="3" name="description">{{text}}</textarea>
-                </div>
-            </form>
+            </div>
 
             <!-- 活动封面图 -->
             <!-- 此处上传活动的封面图，可以在前端显示-->
             <div class="panel-body">
                 <!--此处接受图像文件，限定为图片格式-->
-                <input type="file" name="cover_image_name" id="image" accept="image/*"><br>
+                <input type="file" name="image" id="image" accept="image/*"><br>
             </div>
 
             <!-- upload上传按钮 -->
-            <button type="button" class="btn btn-secondary">upload</button>
+            <input type="submit" value="upload">
+             <!-- <button type="button" class="btn btn-secondary">upload</button> -->
             <p class="message"></p>
 
         </form>
@@ -98,4 +96,4 @@ Ps: Jinja2模板网站，以base.html为基础
     </div>
 </div>
 
-{% endblock main-content %}
+{% endblock main_content %}

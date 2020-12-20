@@ -17,16 +17,17 @@ def new():
         return redirect(url_for('home'))
 
     if request.method == 'GET':
+        
         return render_template("teacher/pubActivity.html")
     else:
         name = request.form.get('name')
         description = request.form.get('description')
-        cover_image_path = request.form.get('cover_image_path')
+        # cover_image_path = request.form.get('cover_image_path')
         cover_image_name = request.form.get('cover_image_name')
         label = request.form.get('label')
         lead_teacher = request.form.get('lead_teacher')
         score = request.form.get('score')
-        participants = request.form.get('participants')
+        # participants = request.form.get('participants')
         # upload image
         cover_image_path = os.path.join(basedir, 'upload', 'activity')
 
@@ -42,15 +43,15 @@ def new():
             flash('请填入带队老师')
             return render_template("teacher/pubActivity.html")
 
-        profile_image_name = ""
+        cover_image_name = ""
 
         if f and allowed_file(f.filename):
             # securitify the filename
             fname = secure_filename(f.filename)
             ext = fname.rsplit('.', 1)[1]
             nowTime = datetime.datetime.now().strftime("%Y%m%d%H%M%S")  # 生成当前时间
-            profile_image_name = nowTime + '.' + ext
-            f.save(os.path.join(cover_image_path, profile_image_name))
+            cover_image_name = nowTime + '.' + ext
+            f.save(os.path.join(cover_image_path, cover_image_name))
 
             # complete feedback
             flash('Upload succeeded!')
@@ -60,13 +61,13 @@ def new():
 
         acti = Activity(name=name, description=description, cover_image_path=cover_image_path,
                         cover_image_name=cover_image_name, label=label, lead_teacher=lead_teacher, score=score,
-                        participants=participants,
-                        profile_image_name=profile_image_name)
+                       # participants=participants
+                       )
 
         db.session.add(acti)
         db.session.commit()
 
-    return redirect(url_for('new'))
+    return redirect(url_for('act.new'))
 
 @bp.route('/<int:id>/', methods=['POST', 'GET'])
 def activity(id):
