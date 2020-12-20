@@ -5,10 +5,17 @@ Author: king
 Ps: Jinja2模板网站，以base.html为基础
 ----------------------------------->
 
-{% extends 'base.html' %}
+{% extends 'teacher/base.html' %}
 
-<!--主体内容部分的替换-->
-{% block content %}
+{% block page_item %}
+    Moral Education
+{% endblock page_item %}
+
+{% block active_item %}
+    Public Activity
+{% endblock active_item %}
+
+{% block container %}
 <!-- 下面为教师管理员发布活动的具体提交框，包括模块，标题，带队教师，分数，介绍，活动封面-->
 <div class="file-submit">
     <div class="panel panel-success">
@@ -19,7 +26,8 @@ Ps: Jinja2模板网站，以base.html为基础
         <!-- 设置提交的内容 -->
         <div class="public-activity">
             <!-- form设置前后端连接的方式 -->
-            <form action="{{ url_for('act.activity') }}" method="POST">
+            <!-- 不是太了解后端，需要协助完成 -->
+        <form>
             <!-- 活动选择-->
             <!-- 从五大模块中选择一个，五选一，默认为virtue -->
             <label for="activity-select">Choose a activity module:</label>
@@ -75,12 +83,13 @@ Ps: Jinja2模板网站，以base.html为基础
             <!-- upload上传按钮 -->
             <button type="button" class="btn btn-secondary">upload</button>
             <p class="message"></p>
-            </form>
+
+        </form>
         </div>
     </div>
 </div>
 
-<!-- 日历小挂件-->
+<!-- 日历挂件-->
 <div class="canlenda2">
     <div class="col-md-4 col-sm-12 text-center">
         <div class="mb-20">
@@ -88,4 +97,5 @@ Ps: Jinja2模板网站，以base.html为基础
         </div>
     </div>
 </div>
-{% endblock content %}
+
+{% endblock container %}
