@@ -26,7 +26,7 @@ Ps: Jinja2模板网站，以base.html为基础
         <!-- 设置提交的内容 -->
         <div class="public-activity">
             <!-- form设置前后端连接的方式 -->
-        <form action="{{ url_for('act.new')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url_for('act.id')}}" method="POST" enctype="multipart/form-data">
             <!-- 默认值可以通过value值来设定 -->
             <!-- 活动选择-->
             <!-- 从五大模块中选择一个，五选一，默认为virtue -->
@@ -42,33 +42,37 @@ Ps: Jinja2模板网站，以base.html为基础
 
             <!-- 活动的标题上传 -->
             <!-- 设置的{{text}}为错误信息反馈 -->
+            <!-- value值为默认值 -->
             <label for="activity-select">Activity Tittle</label>
             <div class="form-group">
                 <input type="text" class="form-control" id="name" name="name" style="width: 400px;"
-                placeholder="Please input activity tittle">{{text}}
+                value="{{activity.name}}">{{text}}
             </div>
 
             <!-- 活动的领队教师设置 -->
+            <!-- value值为默认值 -->
             <label for="activity-select">Activity Teacher</label>
             <div class="form-group">
                 <input type="text" class="form-control" id="name" style="width: 250px;"
-                placeholder="Please input activity teacher" name="lead_teacher">{{text}}
+                value="{{activity.lead_teacher}}" name="lead_teacher">{{text}}
             </div>
 
             <!-- 活动的分数设置 -->
             <!-- 此处已经由前端代码判断输入是否为数字，后端只需要考虑分数的高低限制（或者不设）-->
+            <!-- value值为默认值 -->
             <label for="activity-select">Activity Score</label>
             <div class="form-group">
                 <input type="text" name="score" onkeyup="this.value=this.value.replace(/\D/g,'')"
                 class="form-control" id="name" style="width: 250px;"
-                placeholder="Please input activity score">{{text}}
+                value="{{activity.score}}">{{text}}
             </div>
 
             <!-- 活动的介绍 -->
             <!-- 描述活动的具体内容 -->
+            <!-- 将text直接替换为文本即可 -->
             <label for="activity-select">Activity Describe</label>
             <div class="form-group">
-                <textarea class="form-control" rows="3" name="description">{{text}}</textarea>
+                <textarea class="form-control" rows="3" name="description">{{activity.description}}</textarea>
             </div>
 
             <!-- 活动封面图 -->
@@ -79,7 +83,7 @@ Ps: Jinja2模板网站，以base.html为基础
             </div>
 
             <!-- upload上传按钮 -->
-            <input type="submit" value="upload">
+            <input type="submit" value="revise">
              <!-- <button type="button" class="btn btn-secondary">upload</button> -->
             <p class="message"></p>
 
