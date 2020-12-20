@@ -48,3 +48,4 @@ def labor():
     if (request.method == 'GET'):
         act = Activity.query.filter(Activity.label == 'labor').all()
         return render_template('Labor.html', item=act)
+

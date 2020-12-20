@@ -112,3 +112,10 @@ def delete(activity_id):
     db.session.delete(act)
     db.session.commit()
     return redirect(url_for("home"))
+
+@bp.route('/complete/<int:activity_id>')
+def complete(activity_id):
+    act = Activity.query.filter(Activity.id == activity_id).first()
+    act.status = 'finished'
+    db.session.commit()
+    return redirect(url_for('act.activity', id=activity_id))

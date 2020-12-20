@@ -51,10 +51,10 @@
         <ul>
 
           <li><a href={{url_for('home')}}>Home</a></li>
-          <li><a href={{url_for('module.virtue')}}>Virtue Activity</a></li>
+          <li><a href={{url_for('module.virtue')}}>Morality Activity</a></li>
           <li><a href={{url_for('module.wisdom')}}>Wisdom Activity</a></li>
-          <li><a href={{url_for('module.body_act')}}>Body Activity</a></li>
-          <li class="active"><a href={{url_for('module.beauty')}}>Beauty Activity</a></li>
+          <li><a href={{url_for('module.body_act')}}>Sports Activity</a></li>
+          <li><a href={{url_for('module.beauty')}}>Arts Activity</a></li>
           <li><a href={{url_for('module.labor')}}>Labor Activity</a></li>
           <li class="last"><a href={{url_for('space.personal_page')}}>User Page</a></li>
           <!--个人建议将首页放在这里，但也有人提议放在其他地方-->
@@ -77,7 +77,7 @@
             <h2>Nullamlacus dui ipsum</h2>
             <p>Attincidunt vel nam a maurisus lacinia consectetus magnisl sed ac morbi. Inmaurisus habitur pretium eu et
               ac vest penatibus id lacus parturpis.</p>
-            <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
+            <p class="readmore"><a href="Virtue.html">Continue Reading &raquo;</a></p>
           </div>
         </div>
         <!--此处为‘智’方案介绍-->
@@ -86,7 +86,7 @@
             <h2>Aliquatjusto quisque nam</h2>
             <p>Attincidunt vel nam a maurisus lacinia consectetus magnisl sed ac morbi. Inmaurisus habitur pretium eu et
               ac vest penatibus id lacus parturpis.</p>
-            <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
+            <p class="readmore"><a href="Wisdom.html">Continue Reading &raquo;</a></p>
           </div>
         </div>
         <!--此处为‘体’方案介绍-->
@@ -95,7 +95,7 @@
             <h2>Aliquatjusto quisque nam</h2>
             <p>Attincidunt vel nam a maurisus lacinia consectetus magnisl sed ac morbi. Inmaurisus habitur pretium eu et
               ac vest penatibus id lacus parturpis.</p>
-            <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
+            <p class="readmore"><a href="Body.html">Continue Reading &raquo;</a></p>
           </div>
         </div>
         <!--此处为‘美’方案介绍-->
@@ -104,7 +104,7 @@
             <h2>Aliquatjusto quisque nam</h2>
             <p>Attincidunt vel nam a maurisus lacinia consectetus magnisl sed ac morbi. Inmaurisus habitur pretium eu et
               ac vest penatibus id lacus parturpis.</p>
-            <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
+            <p class="readmore"><a href="Beauty.html">Continue Reading &raquo;</a></p>
           </div>
         </div>
         <!--此处为‘劳’方案介绍-->
@@ -113,7 +113,7 @@
             <h2>Dapiensociis temper donec</h2>
             <p>Attincidunt vel nam a maurisus lacinia consectetus magnisl sed ac morbi. Inmaurisus habitur pretium eu et
               ac vest penatibus id lacus parturpis.</p>
-            <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
+            <p class="readmore"><a href="Labor.html">Continue Reading &raquo;</a></p>
           </div>
         </div>
       </div>
@@ -149,8 +149,17 @@
           </div>
           <!-- ###### -->
           <div id="latestnews">
-            <h2>Latest News &amp; Events</h2>
+            <h2>Recommended Events</h2>
             <ul>
+              {% if item1 %}
+              <li class="clear">
+                <div class="imgl"><img src="{{item1.cover_image_path ~ item1.cover_image_name}}" alt="" width="125" height="125"/></div>
+                <div class="latestnews">
+                  <p><a href="{{'../' ~ item1.id}}">Read More Here &raquo;</a></p>
+                  <p>{{item1.description}}</p>
+                </div>
+              </li>
+              {% else %}
               <li class="clear">
                 <div class="imgl"><img src="../static/img/10.jpg" alt="" /></div>
                 <div class="latestnews">
@@ -160,6 +169,16 @@
                       Licence</a></p>
                 </div>
               </li>
+              {% endif %}
+              {% if item2 %}
+              <li class="clear">
+                <div class="imgl"><img src="{{item2.cover_image_path ~ item2.cover_image_name}}" alt="" width="125" height="125"/></div>
+                <div class="latestnews">
+                  <p><a href="{{'../' ~ item2.id}}">Read More Here &raquo;</a></p>
+                  <p>{{item2.description}}</p>
+                </div>
+              </li>
+              {% else %}
               <li class="clear">
                 <div class="imgl"><img src="../static/img/11.jpg" alt="" /></div>
                 <div class="latestnews">
@@ -168,6 +187,16 @@
                     copyright information and credit links in the template and associated files.</p>
                 </div>
               </li>
+              {% endif %}
+              {% if item3 %}
+              <li class="clear">
+                <div class="imgl"><img src="{{item3.cover_image_path ~ item3.cover_image_name}}" alt="" width="125" height="125"/></div>
+                <div class="latestnews">
+                  <p><a href="{{'../' ~ item3.id}}">Read More Here &raquo;</a></p>
+                  <p>{{item3.description}}</p>
+                </div>
+              </li>
+              {% else %}
               <li class="last clear">
                 <div class="imgl"><img src="../static/img/12.jpg" alt="" /></div>
                 <div class="latestnews">
@@ -177,6 +206,7 @@
                     penatibus id lacus parturpis.</p>
                 </div>
               </li>
+              {% endif %}
             </ul>
             <!--，祝你开心每一天！(bushi)-->
             <p class="readmore">May you be happy every day!</a></p>

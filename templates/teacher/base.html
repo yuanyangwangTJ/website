@@ -179,7 +179,8 @@ Author: king
 
 					<!--教师发布活动处-->
 					<li>
-						<a href="activity.html" class="dropdown-toggle no-arrow">
+						<a href={{url_for('act.new')}}  class="dropdown-toggle no-arrow">
+
 							<span class="micon dw dw-calendar1"></span><span class="mtext">Public Activity</span>
 						</a>
 					</li>
@@ -265,14 +266,17 @@ Author: king
 			</div>
 
 			<div class="row clearfix progress-box">
+
 				{% block container %}
+
 				<!--注意此处main-content 与 main-container的区别-->
 				<!-----------------------------------------
 				这之间为活动的主体内容设置
 				------------------------------------------->
 				<p>主体内容</p>
+
 				{% endblock container %}
-				
+
 			</div>
 		</div>
 	</div>
