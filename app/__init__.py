@@ -42,12 +42,6 @@ def create_app(app_config=None):
     @app.route("/index.html")
     @app.route("/home")
     def home():
-        Acts = []
-        Acts = Activity.query.order_by(Activity.id.desc()).all()
-        args = {
-            'session': session,
-            'acts': Acts
-        }
         act1 = None
         act2 = None
         act3 = None
@@ -60,40 +54,40 @@ def create_app(app_config=None):
             if activity.status == 'finished' and activity.label in scores:
                 scores[activity.label] += activity.score
 
-        type1 = "virtue"
-        type2 = "wisdom"
-        num1 = scores["virtue"]
-        num2 = scores["wisdom"]
+        type_min = "virtue"
+        num_min = scores["virtue"]
         for x, y in scores.items():
-            if x == "virtue" or x == "wisdom":
-                continue
-            if y < num1:
-                type2 = type1
-                type1 = x
-            elif y < num2:
-                type2 = x
+            if y < num_min:
+                type_min = x
 
-        act1 = Activity.query.filter(Activity.label == type1
-                                     and user not in Activity.participants).first()
-        act2 = Activity.query.filter(Activity.label == type1
-                                     and user not in Activity.participants
-                                     and Activity.id != act1.id).first()
-        act3 = Activity.query.filter(Activity.label == type2
-                                     and user not in Activity.participants).first()
+        act1 = Activity.query.filter(Activity.status == "coming"
+                                    and Activity.label == type_min
+                                    and user not in Activity.participants
+                                    ).first()
+        act2 = Activity.query.filter(Activity.status == "coming"
+                                    and Activity.label == type_min
+                                    and user not in Activity.participants
+                                    and Activity.id != act1.id
+                                    ).first()
+        act3 = Activity.query.filter(Activity.status == "coming"
+                                    and Activity.label == type_min
+                                    and user not in Activity.participants
+                                    and Activity.id != act1.id
+                                    and Activity.id != act2.id
+                                    ).first()
         if act1 == None:
-            act1 = Activity.query.filter(user not in Activity.participants).first()
+            act1 = Activity.query.filter(Activity.status == "coming"
+                                        and user not in Activity.participants
+                                        ).first()
         if act2 == None:
-            act2 = Activity.query.filter(user not in Activity.participants
-                                         and Activity.id != act1.id).first()
+            act2 = Activity.query.filter(Activity.status == "coming"
+                                        and user not in Activity.participants
+                                        and Activity.id != act1.id).first()
         if act3 == None:
-            act3 = Activity.query.filter(user not in Activity.participants
-                                         and Activity.id != act1.id
-                                         and Activity.id != act2.id).first()
+            act3 = Activity.query.filter(Activity.status == "coming"
+                                        and user not in Activity.participants
+                                        and Activity.id != act1.id
+                                        and Activity.id != act2.id).first()
         return render_template('index.html', item1=act1, item2=act2, item3=act3)
-
-
-    @app.teardown_appcontext
-    def shutdown_session(exception=None):
-        db.session.remove()
 
     return app
