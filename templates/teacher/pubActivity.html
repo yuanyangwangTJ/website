@@ -13,15 +13,16 @@ Ps: Jinja2模板网站，以base.html为基础
 <div class="file-submit">
     <div class="panel panel-success">
         <div class="panel-heading">
-            <h3 class="panel-title">发布活动</h3>
+            <h3 class="panel-title">Public Activity</h3>
         </div><br>
 
         <!-- 设置提交的内容 -->
         <div class="public-activity">
+            <!-- form设置前后端连接的方式 -->
+            <form action="{{ url_for('act.activity') }}" method="POST">
             <!-- 活动选择-->
             <!-- 从五大模块中选择一个，五选一，默认为virtue -->
             <label for="activity-select">Choose a activity module:</label>
-            <form>
                 <select name="activity" class="activity-select" name="lable">
                     <option value="virtue" selected>virtue</option>
                     <option value="wisdom">wisdom</option>
@@ -29,21 +30,21 @@ Ps: Jinja2模板网站，以base.html为基础
                     <option value="beauty">beauty</option>
                     <option value="labor">labor</option>
                 </select>
-            </form>
             <br><br>
 
             <!-- 活动的标题上传 -->
+            <!-- 设置的{{text}}为错误信息反馈 -->
             <label for="activity-select">Activity Tittle</label>
             <div class="form-group">
                 <input type="text" class="form-control" id="name" name="name" style="width: 400px;"
-                placeholder="Please input activity tittle">
+                placeholder="Please input activity tittle">{{text}}
             </div>
 
             <!-- 活动的领队教师设置 -->
             <label for="activity-select">Activity Teacher</label>
             <div class="form-group">
                 <input type="text" class="form-control" id="name" style="width: 250px;"
-                placeholder="Please input activity teacher" name="lead_teacher">
+                placeholder="Please input activity teacher" name="lead_teacher">{{text}}
             </div>
 
             <!-- 活动的分数设置 -->
@@ -52,7 +53,7 @@ Ps: Jinja2模板网站，以base.html为基础
             <div class="form-group">
                 <input type="text" name="score" onkeyup="this.value=this.value.replace(/\D/g,'')"
                 class="form-control" id="name" style="width: 250px;"
-                placeholder="Please input activity score">
+                placeholder="Please input activity score">{{text}}
             </div>
 
             <!-- 活动的介绍 -->
@@ -60,7 +61,7 @@ Ps: Jinja2模板网站，以base.html为基础
             <label for="activity-select">Activity Describe</label>
             <form role="form" style="width: 600px;">
                 <div class="form-group">
-                <textarea class="form-control" rows="3" name="description"></textarea>
+                <textarea class="form-control" rows="3" name="description">{{text}}</textarea>
                 </div>
             </form>
 
@@ -69,9 +70,12 @@ Ps: Jinja2模板网站，以base.html为基础
             <div class="panel-body">
                 <!--此处接受图像文件，限定为图片格式-->
                 <input type="file" name="cover_image_name" id="image" accept="image/*"><br>
-                <button type="button" class="btn btn-secondary">upload</button>
-                <p class="message"></p>
             </div>
+
+            <!-- upload上传按钮 -->
+            <button type="button" class="btn btn-secondary">upload</button>
+            <p class="message"></p>
+            </form>
         </div>
     </div>
 </div>
