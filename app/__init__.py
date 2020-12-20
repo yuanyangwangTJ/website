@@ -64,46 +64,15 @@ def create_app(app_config=None):
             if y < num_min:
                 type_min = x
 
-        act1 = Activity.query.filter(and_(Activity.status == "coming",
-                                          Activity.label == type_min,
-                                          Activity.id not in [temp_activity.id for temp_activity in user.activities]
-                                          )
-                                     ).first()
-        if act1 is None:
-            act1 = Activity.query.filter(and_(Activity.status == "coming",
-                                              Activity.id not in [temp_activity.id for temp_activity in user.activities]
-                                              )
-                                         ).first()
+        recommend_act = db.session.execute('select * from activity where id in (select id from activity where status = "coming" and id not in(select Activity_id from tags where User_id = ' + str(user.id) + ')) limit 3;')
+        recommend = []
+        for activity in recommend_act:
+            recommend.append(activity)
 
-        if act1 is None:
-            return render_template('index.html', item1=act1, item2=None, item3=None)
-        act2 = Activity.query.filter(and_(Activity.status == "coming",
-                                          Activity.label == type_min,
-                                          Activity.id not in [temp_activity.id for temp_activity in user.activities],
-                                          Activity.id != act1.id)
-                                     ).first()
-        if act2 is None:
-            act2 = Activity.query.filter(and_(Activity.status == "coming",
-                                              Activity.id not in [temp_activity.id for temp_activity in user.activities],
-                                              Activity.id != act1.id)
-                                         ).first()
-        if act2 is None:
-            return render_template('index.html', item1=act1, item2=act2, item3=None)
-        act3 = Activity.query.filter(and_(Activity.status == "coming",
-                                          Activity.label == type_min,
-                                          Activity.id not in [temp_activity.id for temp_activity in user.activities],
-                                          Activity.id != act1.id,
-                                          Activity.id != act2.id)
-                                     ).first()
+        length = len(recommend)
+        for i in range(3 - length):
+            recommend.append(None)
 
-        if act3 is None:
-            act3 = Activity.query.filter(and_(Activity.status == "coming",
-                                              Activity.id not in [temp_activity.id for temp_activity in user.activities],
-                                              Activity.id != act1.id,
-                                              Activity.id != act2.id)
-                                         ).first()
-        if act3 is None:
-            return render_template('index.html', item1=act1, item2=act2, item3=act3)
-        return render_template('index.html', item1=act1, item2=act2, item3=act3)
+        return render_template('index.html', item1=recommend[0], item2=recommend[1], item3=recommend[2])
 
     return app
