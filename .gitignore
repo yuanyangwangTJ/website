@@ -136,3 +136,4 @@ dmypy.json
 /.idea/
 
 /app/upload/
+/static/img/activity/

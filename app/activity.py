@@ -29,7 +29,7 @@ def new():
         score = request.form.get('score')
         # participants = request.form.get('participants')
         # upload image
-        cover_image_path = os.path.join(basedir, 'upload', 'activity')+'\\'
+        cover_image_path = os.path.join('.', 'static', 'img', 'activity')
 
         f = request.files['image']
 
@@ -51,7 +51,17 @@ def new():
             ext = fname.rsplit('.', 1)[1]
             nowTime = datetime.datetime.now().strftime("%Y%m%d%H%M%S")  # 生成当前时间
             cover_image_name = nowTime + '.' + ext
-            f.save(os.path.join(cover_image_path, cover_image_name))
+<<<<<<< Updated upstream
+
+            path = os.path.abspath(os.path.join(cover_image_path, cover_image_name))
+            path = path.replace('\\', '/')
+            cover_image_path += os.sep
+            cover_image_path = cover_image_path.replace('\\', '/')
+=======
+            path = os.path.abspath(os.path.join(cover_image_path, cover_image_name))
+
+>>>>>>> Stashed changes
+            f.save(path)
 
             # complete feedback
             flash('Upload succeeded!')
@@ -59,7 +69,7 @@ def new():
         else:
             flash('The image format is not supported. Please try again.')
 
-        acti = Activity(name=name, description=description, cover_image_path=cover_image_path,
+        acti = Activity(name=name, description=description, cover_image_path=cover_image_path + os.sep,
                         cover_image_name=cover_image_name, label=label, lead_teacher=lead_teacher, score=score,
                        # participants=participants
                        )
