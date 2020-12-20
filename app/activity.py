@@ -51,16 +51,13 @@ def new():
             ext = fname.rsplit('.', 1)[1]
             nowTime = datetime.datetime.now().strftime("%Y%m%d%H%M%S")  # 生成当前时间
             cover_image_name = nowTime + '.' + ext
-<<<<<<< Updated upstream
 
             path = os.path.abspath(os.path.join(cover_image_path, cover_image_name))
             path = path.replace('\\', '/')
             cover_image_path += os.sep
             cover_image_path = cover_image_path.replace('\\', '/')
-=======
             path = os.path.abspath(os.path.join(cover_image_path, cover_image_name))
 
->>>>>>> Stashed changes
             f.save(path)
 
             # complete feedback
