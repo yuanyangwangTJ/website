@@ -12,6 +12,7 @@
     <ul>
         {% for activity in item %}
         <li class="{{ loop.index0 | set_last_class_filter }}"><img src="{{activity.cover_image_path ~ activity.cover_image_name}}" alt="" />
+            <li class="{{ loop.index0 | set_last_class_filter }}"><img src="../app/upload/activity/{{activity.cover_image_name}}" alt="" />
             <h2>{{activity.name}}</h2>
             <p>{{activity.description}}</p>
             <p class="readmore"><a href="{{'../' ~ activity.id}}">Read More Here &raquo;</a></p>

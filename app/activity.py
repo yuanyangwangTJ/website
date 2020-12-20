@@ -29,7 +29,7 @@ def new():
         score = request.form.get('score')
         # participants = request.form.get('participants')
         # upload image
-        cover_image_path = os.path.join(basedir, 'upload', 'activity')
+        cover_image_path = os.path.join(basedir, 'upload', 'activity')+'\\'
 
         f = request.files['image']
 
