@@ -48,7 +48,48 @@ def create_app(app_config=None):
             'session': session,
             'acts': Acts
         }
-        return render_template('index.html')
+        act1 = None
+        act2 = None
+        act3 = None
+        user = User.query.filter(User.id == g.userid).first()
+        if user.usertype != 'student':
+            return render_template('index.html', item1=act1, item2=act2, item3=act3)
+
+        scores = {'virtue': 0, 'wisdom': 0, 'body': 0, 'beauty': 0, 'labor': 0}
+        for activity in user.activities:
+            if activity.status == 'finished' and activity.label in scores:
+                scores[activity.label] += activity.score
+
+        type1 = "virtue"
+        type2 = "wisdom"
+        num1 = scores["virtue"]
+        num2 = scores["wisdom"]
+        for x, y in scores.items():
+            if x == "virtue" or x == "wisdom":
+                continue
+            if y < num1:
+                type2 = type1
+                type1 = x
+            elif y < num2:
+                type2 = x
+
+        act1 = Activity.query.filter(Activity.label == type1
+                                     and user not in Activity.participants).first()
+        act2 = Activity.query.filter(Activity.label == type1
+                                     and user not in Activity.participants
+                                     and Activity.id != act1.id).first()
+        act3 = Activity.query.filter(Activity.label == type2
+                                     and user not in Activity.participants).first()
+        if act1 == None:
+            act1 = Activity.query.filter(user not in Activity.participants).first()
+        if act2 == None:
+            act2 = Activity.query.filter(user not in Activity.participants
+                                         and Activity.id != act1.id).first()
+        if act3 == None:
+            act3 = Activity.query.filter(user not in Activity.participants
+                                         and Activity.id != act1.id
+                                         and Activity.id != act2.id).first()
+        return render_template('index.html', item1=act1, item2=act2, item3=act3)
 
 
     @app.teardown_appcontext

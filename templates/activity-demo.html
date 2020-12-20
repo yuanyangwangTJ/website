@@ -16,6 +16,9 @@
         {% elif operation == 'Abort' %}
         <a href="{{'../abort/' ~ act.id}}">Abort</a>
         {% elif operation == 'Delete' %}
+        <a href="{{'../complete/' ~ act.id}}">Complete</a>
+        <br>
+        <br>
         <a href="{{'../delete/' ~ act.id}}">Delete</a>
         {% else %}
 <!--        do nothing-->
