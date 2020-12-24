@@ -80,6 +80,7 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 .rnd{
 	display:block;
 	width:960px;
+	padding:12px 0 0 0;
 	background:url("../../static/img/round_top.gif") top left no-repeat;
 	}
 
